@@ -1,0 +1,400 @@
+:root {
+    /* ===== 主色系：開心水族箱 × 旅遊 ===== */
+    --color-bg: #dff7ff;
+    --color-bg-light: #f7fdff;
+    --color-primary: #20b8d8;
+    --color-primary-dark: #0787ad;
+    --color-secondary: #64d8cb;
+    --color-blue: #3ca9e8;
+    --color-blue-dark: #176fa8;
+    --color-white: #ffffff;
+    --color-text: #24546a;
+    --color-text-light: #5d8494;
+    --color-yellow: #ffd85a;
+    --color-orange: #ff9d4d;
+    --color-pink: #ff8fb3;
+
+    /* ===== 卡片 ===== */
+    --card-bg: rgba(255, 255, 255, 0.94);
+    --card-border: #b5ebf5;
+    --card-radius: 20px;
+    --card-shadow: 0 8px 18px rgba(30, 139, 177, 0.20);
+    --card-shadow-hover: 0 14px 28px rgba(30, 139, 177, 0.32);
+
+    /* ===== 標題 ===== */
+    --title-size: 42px;
+    --title-color: #087da7;
+    --title-shadow: 2px 3px 0 var(--color-white);
+
+    /* ===== 圖片 ===== */
+    --image-height: 220px;
+    --image-radius: 18px;
+
+    /* ===== 間距 ===== */
+    --wrapper-width: 1024px;
+    --wrapper-padding: 20px;
+    --gap: 18px;
+
+    /* ===== 動畫 ===== */
+    --transition: 0.3s ease;
+}
+
+
+/* =========================
+   全域設定
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 15px 50px;
+    font-family:
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        Arial,
+        sans-serif;
+
+    color: var(--color-text);
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 255, 255, 0.9) 0 45px,
+            transparent 46px
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(255, 255, 255, 0.7) 0 25px,
+            transparent 26px
+        ),
+        linear-gradient(
+            180deg,
+            var(--color-bg-light) 0%,
+            var(--color-bg) 55%,
+            #bcecf7 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   主標題
+========================= */
+
+.mytitle-01 {
+    position: relative;
+
+    width: 100%;
+    max-width: var(--wrapper-width);
+
+    margin: 0 auto 22px;
+
+    padding: 18px 25px;
+
+    text-align: center;
+
+    font-size: var(--title-size);
+    font-weight: 900;
+
+    color: var(--title-color);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(221, 250, 255, 0.95)
+        );
+
+    border: 4px solid var(--color-white);
+    border-radius: 30px;
+
+    box-shadow:
+        0 6px 0 var(--color-secondary),
+        0 10px 20px rgba(30, 139, 177, 0.18);
+
+    text-shadow: var(--title-shadow);
+}
+
+
+/* 標題小裝飾 */
+.mytitle-01::before {
+    content: "🐠";
+    margin-right: 15px;
+}
+
+.mytitle-01::after {
+    content: " 🐳";
+    margin-left: 15px;
+}
+
+
+/* =========================
+   外層容器
+========================= */
+
+.wrapper {
+    position: relative;
+
+    width: 100%;
+    max-width: var(--wrapper-width);
+
+    margin: 0 auto;
+
+    padding: var(--wrapper-padding);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.85),
+            rgba(225, 249, 255, 0.85)
+        );
+
+    border: 5px solid var(--color-white);
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 0 3px var(--card-border),
+        0 12px 30px rgba(20, 122, 160, 0.22);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   小魚泡泡背景
+========================= */
+
+.wrapper::before {
+    content: "🫧  🫧  🫧";
+    position: absolute;
+
+    top: 5px;
+    right: 15px;
+
+    font-size: 25px;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+}
+
+.wrapper::after {
+    content: "🌊";
+    position: absolute;
+
+    bottom: -8px;
+    left: 10px;
+
+    font-size: 45px;
+
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   美食卡片
+========================= */
+
+.demo {
+    position: relative;
+
+    width: 100%;
+    margin: 0;
+
+    float: none;
+
+    overflow: hidden;
+
+    background: var(--card-bg);
+
+    border: 3px solid var(--card-border);
+    border-radius: var(--card-radius);
+
+    box-shadow: var(--card-shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* 卡片滑過效果 */
+.demo:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================
+   圖片
+========================= */
+
+.demo .logo {
+    position: relative;
+
+    width: 100%;
+    height: var(--image-height);
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-radius: var(--image-radius);
+
+    overflow: hidden;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* 圖片上的藍色透明層 */
+.demo .logo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 196, 224, 0.05),
+            rgba(0, 91, 130, 0.30)
+        );
+
+    pointer-events: none;
+}
+
+
+/* 滑過卡片圖片放大 */
+.demo:hover .logo {
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   店家名稱
+========================= */
+
+.mytitle-01a {
+    position: relative;
+
+    margin: 0;
+
+    padding: 15px 15px 5px;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    line-height: 1.5;
+
+    color: var(--color-primary-dark);
+}
+
+
+/* 小魚圖示 */
+.mytitle-01a::before {
+    content: "🐟";
+    margin-right: 7px;
+}
+
+
+/* =========================
+   電話
+========================= */
+
+.mytitle-04 {
+    margin: 0;
+
+    padding: 3px 15px 16px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    color: var(--color-text-light);
+
+    line-height: 1.5;
+}
+
+
+/* 電話圖示 */
+.mytitle-04::before {
+    content: "📞";
+    margin-right: 7px;
+}
+
+
+/* =========================
+   手機版
+========================= */
+
+@media screen and (max-width: 1024px) {
+
+    :root {
+        --title-size: 36px;
+    }
+
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    :root {
+        --title-size: 30px;
+        --wrapper-padding: 15px;
+        --gap: 15px;
+        --image-height: 190px;
+    }
+
+    body {
+        padding: 20px 10px 40px;
+    }
+
+    .mytitle-01 {
+        padding: 15px 10px;
+        border-radius: 22px;
+    }
+
+    .mytitle-01::before,
+    .mytitle-01::after {
+        display: none;
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+        border-radius: 22px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+
+    :root {
+        --title-size: 25px;
+        --image-height: 170px;
+    }
+
+    .mytitle-01a {
+        font-size: 18px;
+    }
+
+    .mytitle-04 {
+        font-size: 15px;
+    }
+}
