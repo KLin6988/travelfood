@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莫蘭迪色調視覺預覽</title>
+    <style>
+        :root {
+            --morandi-bg-body: #E8E5DF;         /* 柔和霧面灰米色 */
+            --morandi-nav-bg: #D4CBC0;         /* 溫潤淺灰褐 */
+            --morandi-nav-link-bg: #C2B8A3;    /* 沉穩灰卡其 */
+            --morandi-content-bg: #F2EFE9;     /* 極淺燕麥白 */
+            --morandi-btn-bg: #9FA8A3;         /* 霧灰綠色 */
+            --morandi-footer-bg: #7D8482;      /* 深莫蘭迪石墨灰 */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--morandi-bg-body);
+            font-family: "Microsoft JhengHei", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .preview-container {
+            width: 1024px;
+            background-color: #FFFFFF;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .preview-banner {
+            height: 180px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), #A3A8A4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FAF8F5;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .preview-nav {
+            background-color: var(--morandi-nav-bg);
+            text-align: center;
+            padding: 20px;
+        }
+        .preview-nav a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--morandi-nav-link-bg);
+            color: #4A4845;
+            padding: 12px 24px;
+            margin: 0 6px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 3px 3px 5px rgba(73, 62, 62, 0.2);
+            transition: 0.2s;
+        }
+        .preview-nav a:hover {
+            background-color: #B4A992;
+        }
+        .preview-content {
+            padding: 40px 80px;
+            background-color: var(--morandi-content-bg);
+            color: #5C564F;
+        }
+        .preview-content h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .preview-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .preview-btn {
+            display: block;
+            background-color: var(--morandi-btn-bg);
+            width: 140px;
+            height: 45px;
+            margin: 30px auto 0 auto;
+            text-decoration: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            line-height: 45px;
+            font-weight: bold;
+            box-shadow: 2px 2px 4px rgba(73, 62, 62, 0.3);
+            border-radius: 6px;
+        }
+        .preview-footer {
+            background-color: var(--morandi-footer-bg);
+            color: #E8E5DF;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preview-container">
+        <div class="preview-banner">莫蘭迪色調版面預覽</div>
+        
+        <div class="preview-nav">
+            <a href="#">首頁</a>
+            <a href="#">最新消息</a>
+            <a href="#">合作店家</a>
+            <a href="#">關於我們</a>
+            <a href="#">聯絡我們</a>
+        </div>
+
+        <div class="preview-content">
+            <h1>歡迎光臨高質感網頁</h1>
+            <p>這是一組專為您設計的莫蘭迪色調（Morandi Palette）配置。透過降低色彩的飽和度與增加灰階，營造出沉穩、內斂且舒適的高級視覺感受，非常適合用來呈現文青、質感或藝術類的網站風格。</p>
+            <p>所有的元件（如導覽按鈕、內容區塊、頁尾與主要按鈕）皆使用了語義化命名的 `:root` 變數來進行色彩渲染，既能維持程式碼的整潔，也能確保整體設計調性的高度和諧。</p>
+            <a href="#">了解更多</a>
+        </div>
+
+        <div class="preview-footer">PowerBy K.LIN 2026.09.23</div>
+    </div>
+
+</body>
+</html>
