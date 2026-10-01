@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地方美食資料練習</title>
+    <link rel="stylesheet" href="css/Myallcss-aqua.css">
+
+    <!-- :root {
+    /* ===== 主色系：開心水族箱 × 旅遊 ===== */
+    --color-bg: #dff7ff;
+    --color-bg-light: #f7fdff;
+    --color-primary: #20b8d8;
+    --color-primary-dark: #0787ad;
+    --color-secondary: #64d8cb;
+    --color-blue: #3ca9e8;
+    --color-blue-dark: #176fa8;
+    --color-white: #ffffff;
+    --color-text: #24546a;
+    --color-text-light: #5d8494;
+    --color-yellow: #ffd85a;
+    --color-orange: #ff9d4d;
+    --color-pink: #ff8fb3;
+
+    /* ===== 卡片 ===== */
+    --card-bg: rgba(255, 255, 255, 0.94);
+    --card-border: #b5ebf5;
+    --card-radius: 20px;
+    --card-shadow: 0 8px 18px rgba(30, 139, 177, 0.20);
+    --card-shadow-hover: 0 14px 28px rgba(30, 139, 177, 0.32);
+
+    /* ===== 標題 ===== */
+    --title-size: 42px;
+    --title-color: #087da7;
+    --title-shadow: 2px 3px 0 var(--color-white);
+
+    /* ===== 圖片 ===== */
+    --image-height: 220px;
+    --image-radius: 18px;
+
+    /* ===== 間距 ===== */
+    --wrapper-width: 1024px;
+    --wrapper-padding: 20px;
+    --gap: 18px;
+
+    /* ===== 動畫 ===== */
+    --transition: 0.3s ease;
+} -->
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin-top: 50px;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 2px 2px 2px 2px rgb(56, 124, 180);
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .demo {
+            width: 66
+            %;
+            box-shadow: 2px 2px 1px 1px rgb(29, 128, 153);
+            margin-top: 15px;
+            float: left;
+            margin-right: 1%;
+        }
+
+        .demo .logo {
+            width: 100%;
+            height: 220px;
+            /* background-image: url(/Images/landscape01.avif); bgi 若放這裡，照片不會動都一樣，放在div 加入style下定義配合append 去讀各圖片檔資料 */
+
+        }
+        @media screen (max-width: 1024px){
+
+
+}          
+        
+    </style>
+</head>
+
+<body>
+    <div class="display-1 fw-900 mytitle-01">地方美食餐廳列表</div>
+    <div class="wrapper" id="foodlist">
+        <div class="demo">
+            <div class="logo bg-img" style="background-image: url(Images/landscape01.avif);"></div>
+            <p class="mytitle-01a">店家:xxx </p>
+            <p class="mytitle-04">電話:xxxx </p>
+
+        </div>
+        <!-- <div class="demo">
+             <div class="logo bg-img"></div>
+            <p class="mytitle-04">店家:xxx </p>
+            <p class="mytitle-04">電話:xxxx </p>
+            <p>店家:xxx </p>
+            <p>電話:xxx </p>
+
+        </div>
+        <div class="demo">
+             <div class="logo bg-img"></div>
+            <p class="mytitle-04">店家:xxx </p>
+            <p class="mytitle-04">電話:xxxx </p>
+            <p>店家:xxx </p>
+            <p>電話:xxx </p>
+
+        </div> -->
+
+    </div>
+    <script src="js/jquery-4.0.0.js"> </script>
+    <script src="js/TravelFood.js"></script>
+    <script>
+        console.log(food);
+        food.forEach(function (item) {
+            // console.log(item.Name);
+            // console.log(item.City);
+            // console.log(item.Email);
+            $("#foodlist").append('<div class="demo" id="foodlist"><div class="logo bg-img" style="background-image: url('+ item.PicURL + ');"></div><p class="mytitle-01a">店家:'+ item.Name +'</p><p class="mytitle-04">電話:' + item.Tel + '</p></div>');
+        });
+
+    </script>
+
+</body>
+
+</html>
