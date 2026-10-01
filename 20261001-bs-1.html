@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Myallcss.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">XX </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">關於我們</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            服務項目
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  </nav>
+</nav>"></nav>
+    <div class="ncontainer">
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="foodlist">
+  <div class="col">
+    <div class="card pt-3">
+      <img src="Images/landscape02.avif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <div class="display-6 fw-900 text-start">餐廳名稱</div>
+        <div class="h5 text end">地址：XXXX</div>
+        <div class="h5 text end me-5">電話：XXXX</div>
+        
+        <p class="card-text text-truncate">一步曾經自行加入時間，精英生活家人適合權限好了合理享受幾天遊戲頓時評價如今，情形將來之中多種很熱優點財產條款，高效予以得知臺中不如更好不論大部分註冊時間，中間崗位漫畫性質資本給他首次走了作業都沒顧問，一支現實突然上午戰爭，檢索他也房產一場要求，呵呵下午這。.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card pt-3">
+      <img src="Images/landscape02.avif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card pt-3">
+      <img src="Images/landscape03.avif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+    <ul class="nav justify-content-center">
+
+ 
+  <li class="nav-item">
+    <a class="nav-link disabled fw-900">Power By K.LIN 2026.10.1</a>
+  </li>
+</ul>
+        
+    </ul>
+  </div>
+</div>"></div>
+
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/TravelFood.js"></script>
+    <script>
+ 
+    console.log(food);
+    $("#foodlist").empty(); //
+    food.forEach(function(item){
+        const StrHTML = `<div class="col">
+                          <div class="card pt-3">
+                                <img src="${item.PicURL}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                 <div class="display-6 fw-900 text-start">餐廳名稱: ${item.Name}</div>
+                                 <div class="h5 text end">地址：${item.City}${item.Town}${item.Address}</div>
+                                 <div class="h5 text end me-5">電話： ${item.Tel}</div>
+        
+                                 <p class="card-text text-truncate">${item.HostWords}</p>
+                                  </div>
+                                   </div>
+      </div>`;
+        $("#foodlist").append(StrHTML); 
+    });
+    </script>
+</body>
+</html>
+
