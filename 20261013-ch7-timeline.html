@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch7 flex-timeline 時間軸</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Myallcss.css">
+    <style>
+        .imgbox{height: 280px;
+
+        }
+        .timeline-section{
+            position: relative;
+        }
+        .timeline-section::before{
+            position: absolute;
+            content: "";
+            width: 5px;
+            background-color: rgba(223,20,71,0.3);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-section-pointer{
+            position: relative;
+        }
+        .timeline-section-pointer::before{
+            position: absolute;
+            content: "";
+            width: 28px;
+            height: 28px;
+            background-color: rgba(83,2,22,0.3);
+            border-radius: 50%;
+            border: 8px solid rgba(63,3,18,0.9);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+        @media screen and (max-width: 768px){
+            /* .timeline-section::before, .timeline-section-pointer::before{
+                display: none;
+            } */
+             .timeline-section::before{
+                left: -20px;
+             }
+           .timeline-section-pointer::before {
+            left: -10px;
+           }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="display-2 text-center fw-900 my-4">時間軸</div>
+    <div class="timeline-section">
+    <div class="row mt-3 align-items-center timeline-section-pointer"></div>
+          <div class="col-md-6">
+            <div class="imgbox bg-img roller-t" style="background-image: url(Images/galaxy.avif);">
+                <div class="rollerbox-t">
+                    <button class="btn btn-warning">查看更多</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h2 fw900 text-center">01標題</div>
+            <p>以為孩子居民，天氣軍隊精選想到更多型號妹妹屬性先後特點，身後紡織有點，一張說明，答應活力是誰報名大。</p>
+            <p>xxx:XXXXX</p>
+            <P>xxx:XXXXX</P>
+            <P>xxx:XXXXX</P>
+        </div>
+    </div>
+       <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+        <div class="col-md-6">
+            <div class="imgbox bg-img roller-b" style="background-image: url(Images/landscape03.avif);">
+                <div class="rollerbox-b">
+                    <button class="btn btn-secondary">查看更多</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h2 fw900 text-center">02標題</div>
+            <p>以為孩子居民，天氣軍隊精選想到更多型號妹妹屬性先後特點，身後紡織有點，一張說明，答應活力是誰報名大。</p>
+            <p>每天更加對她快速地點增加而是電影。</p>
+        </div>
+    </div>    <div class="row mt-3 align-items-center timeline-section-pointer">
+        <div class="col-md-6">
+            <div class="imgbox bg-img roller-l" style="background-image: url(Images/landscape01.avif);">
+                <div class="rollerbox-l">
+                    <button class="btn btn-primary">查看更多</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h2 fw900 text-center">03標題</div>
+            <p>以為孩子居民，天氣軍隊精選想到更多型號妹妹屬性先後特點，身後紡織有點，一張說明，答應活力是誰報名大。</p>
+            <p>每天更加對她快速地點增加而是電影</p>
+        </div>
+    </div>    <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+        <div class="col-md-6">
+            <div class="imgbox bg-img roller-r" style="background-image: url(Images/landscape02.avif);">
+                <div class="rollerbox-r">
+                  <button class="btn btn-success">查看更多</button>  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h2 fw900 text-center">04標題</div>
+            <p>以為孩子居民，天氣軍隊精選想到更多型號妹妹屬性先後特點，身後紡織有點，一張說明，答應活力是誰報名大。</p>
+            <p>每天更加對她快速地點增加而是電影。</p>
+        </div></div>
+    </div> 
+</body>
+</html>
