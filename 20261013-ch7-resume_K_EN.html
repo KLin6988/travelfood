@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>K | 資深國際業務開發暨商品企劃經理</title>
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+        :root {
+            --primary: #586875;
+            --secondary: #87959d;
+            --accent: #c79e91;
+            --light: #f2efec;
+            --gray: #6c7074;
+        }
+
+        body {
+            background-color: var(--light);
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+        }
+
+        /* 共用標題 */
+        .section-title {
+            color: var(--primary);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* 個人介紹 */
+        .profile-section {
+            background: linear-gradient(135deg, #586875, #87959d);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .profile-section h1 {
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .profile-section h4 {
+            color: #ead6cf;
+        }
+
+        /* Roller 共用區域 */
+        .box {
+            height: 230px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .box-title {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .box-title h3 {
+            font-weight: 900;
+        }
+
+        .box-title p {
+            color: #ead6cf;
+            letter-spacing: 2px;
+        }
+
+        /* Roller 遮罩共用設定 */
+        .rollerbox-t,
+        .rollerbox-b,
+        .rollerbox-l,
+        .rollerbox-r {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(88, 104, 117, 0.96);
+            color: white;
+            transform: translate(0);
+            transition: transform 0.7s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Roller Top */
+        .roller-t .rollerbox-t {
+            transform: translateY(-100%);
+        }
+
+        .roller-t:hover .rollerbox-t {
+            transform: translateY(0);
+        }
+
+        /* Roller Bottom */
+        .roller-b .rollerbox-b {
+            transform: translateY(100%);
+        }
+
+        .roller-b:hover .rollerbox-b {
+            transform: translateY(0);
+        }
+
+        /* Roller Left */
+        .roller-l .rollerbox-l {
+            transform: translateX(-100%);
+        }
+
+        .roller-l:hover .rollerbox-l {
+            transform: translateX(0);
+        }
+
+        /* Roller Right */
+        .roller-r .rollerbox-r {
+            transform: translateX(100%);
+        }
+
+        .roller-r:hover .rollerbox-r {
+            transform: translateX(0);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background-color: white;
+            padding: 70px 0;
+        }
+
+        .timeline-section .box {
+            height: 280px;
+        }
+
+        .timeline-section .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-section .rollerbox-t,
+        .timeline-section .rollerbox-b,
+        .timeline-section .rollerbox-l,
+        .timeline-section .rollerbox-r {
+            background-color: rgba(88, 104, 117, 0.93);
+        }
+
+        .timeline-section .rollerbox-t h3,
+        .timeline-section .rollerbox-b h3,
+        .timeline-section .rollerbox-l h3,
+        .timeline-section .rollerbox-r h3 {
+            font-weight: 900;
+        }
+
+        .timeline-content {
+            padding: 30px;
+        }
+
+        .timeline-content h5 {
+            color: #9b7d48;
+            font-weight: 700;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            font-weight: 900;
+            margin: 15px 0;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .timeline-divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 20px 0;
+        }
+
+        /* 頁尾 */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: #ead6cf;
+        }
+
+        /* RWD */
+        @media screen and (max-width: 768px) {
+            .profile-section h1 {
+                font-size: 36px;
+            }
+
+            .timeline-content {
+                padding: 20px 5px;
+            }
+
+            .timeline-content h3 {
+                font-size: 24px;
+            }
+
+            .timeline-section .box {
+                height: 230px;
+            }
+        }
+    
+        .language-switch { position: fixed; z-index: 9999; top: 16px; right: 16px; display:flex; gap:6px; }
+        .language-switch button { border:1px solid rgba(255,255,255,.65); border-radius:20px; padding:7px 13px; background:#f2efec; color:#586875; font-weight:700; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.12); }
+        .language-switch button.active { background:#c79e91; color:#fff; border-color:#c79e91; }
+        [data-lang="en"] .zh-text { display:none !important; }
+        [data-lang="zh"] .en-text { display:none !important; }
+        @media print { .language-switch { display:none; } }
+
+    
+    .language-switch { top: 14px; right: 14px; }
+    .profile-section p { max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.85; }
+    .timeline-content p { font-size: 16px; line-height: 1.8; }
+    .language-switch button:focus-visible { outline: 3px solid #c79e91; outline-offset: 2px; }
+    </style>
+</head>
+<body data-lang="zh">
+<div aria-label="Language selection" class="language-switch" role="group">
+<button aria-pressed="true" class="active" data-set-lang="zh" type="button">繁體中文</button>
+<button aria-pressed="false" data-set-lang="en" type="button">English</button>
+</div>
+<!-- 個人介紹 -->
+<header class="profile-section">
+<div class="container">
+<img alt="K 個人履歷照片 / K profile" class="profile-avatar" src="Images/Female01.avif"/>
+<h1 class="mt-4">K</h1>
+<h4 data-i18n="profile_h4">Senior Business Development / Merchandising Manager</h4>
+<p class="mt-4 fs-5" data-i18n="profile_tagline">
+                INTERNATIONAL SALES  |  GLOBAL KEY ACCOUNTS  |  PRODUCT DEVELOPMENT
+            </p>
+<p data-i18n="profile_intro">
+                具備 25 年以上國際貿易、全球客戶管理、商品開發與銷售營運經驗，
+                擅長拓展國際市場、建立海外代理網絡、推動品牌與產品專案，
+                並以跨部門協作及流程優化創造可衡量的業務成果。
+            </p>
+</div>
+</header>
+<!-- 個人履歷 Roller -->
+<section class="container py-5">
+<h2 class="section-title" data-i18n="profile_section_title">專業履歷 PROFESSIONAL PROFILE</h2>
+<div class="row g-4">
+<!-- 關於我 -->
+<div class="col-md-6">
+<div class="box roller-t">
+<div class="box-title">
+<h3 data-i18n="box1_title">專業摘要</h3>
+<p data-i18n="box1_label">專業摘要</p>
+</div>
+<div class="rollerbox-t">
+<h4 data-i18n="box1_overlay_title">國際業務領導與市場拓展</h4>
+<p data-i18n="box1_overlay_p">
+                            擁有 25 年以上國際貿易、商品企劃、銷售營運及全球重點客戶管理經驗。
+                            曾拓展多國代理通路、管理大型零售客戶與授權商品開發，
+                            並推動年度營收成長、標準作業流程及跨部門合作。
+                        </p>
+</div>
+</div>
+</div>
+<!-- 專業技能 -->
+<div class="col-md-6">
+<div class="box roller-b">
+<div class="box-title">
+<h3 data-i18n="box2_title">核心專長</h3>
+<p data-i18n="box2_label">核心專長</p>
+</div>
+<div class="rollerbox-b">
+<h4 data-i18n="box2_overlay_title">全球商務與營運</h4>
+<p data-i18n="box2_overlay_p">
+                            全球業務開發與關鍵客戶管理<br/>
+                            商品開發、採購與供應商管理<br/>
+                            國際貿易、商務談判與成本控管<br/>
+                            SOP 流程優化、趨勢與市場分析
+                        </p>
+</div>
+</div>
+</div>
+<!-- 專案作品 -->
+<div class="col-md-6">
+<div class="box roller-l">
+<div class="box-title">
+<h3 data-i18n="box3_title">代表成果</h3>
+<p data-i18n="box3_label">SELECTED ACHIEVEMENTS</p>
+</div>
+<div class="rollerbox-l">
+<h4 data-i18n="box3_overlay_title">全球品牌與市場拓展</h4>
+<p data-i18n="box3_overlay_p">
+                            協助主要零售客戶建立自有品牌及授權商品系列，
+                            最近職務期間平均年度銷售成長達 10%，
+                            並於三年內將香港辦事處營業額由 USD 1.5M 提升至 USD 5M。
+                        </p>
+</div>
+</div>
+</div>
+<!-- 求職目標 -->
+<div class="col-md-6">
+<div class="box roller-r">
+<div class="box-title">
+<h3 data-i18n="box4_title">職涯定位</h3>
+<p data-i18n="box4_label">CAREER 職涯目標</p>
+</div>
+<div class="rollerbox-r">
+<h4 data-i18n="box4_overlay_title">資深國際業務／商品管理</h4>
+<p data-i18n="box4_overlay_p">
+                            期望將全球業務開發、商品企劃與銷售管理經驗，
+                            應用於重視成長與國際市場的企業，
+                            持續推動營收成長、客戶關係與營運效率。
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section 圖文交錯 -->
+<section class="timeline-section">
+<div class="container">
+<h2 class="section-title" data-i18n="timeline_title">
+                職涯發展與關鍵成果 CAREER TIMELINE
+            </h2>
+<!-- 第一筆：左圖右文 -->
+<div class="row align-items-center mb-5">
+<div class="col-md-6 mt-3">
+<div class="box roller-r">
+<img alt="全球商品與品牌管理" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000"/>
+<div class="rollerbox-r" style="background-color: rgba(88,104,117,0.93)">
+<h3 data-i18n="timeline1_image_title">商品與品牌管理</h3>
+<p>MERCHANDISING &amp; BRAND DEVELOPMENT</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mt-3">
+<div class="timeline-content">
+<h5 data-i18n="timeline1_date">MAR 2018 – OCT 2025</h5>
+<h3 data-i18n="timeline1_role">Merchandise Manager｜COMPANY_E</h3>
+<div class="timeline-divider"></div>
+<p data-i18n="timeline1_p">
+                            負責日常與季節性裝飾、居家生活商品線，服務 Walmart、Target、
+                            JoAnn、Big Lots 及 El Corte Inglés 等國際客戶。
+                            平均年度銷售成長達 10%；建立零售商自有品牌，
+                            管理 Disney、Dr. Seuss 等授權商品開發，並協調設計、生產、品管與財務團隊。
+                        </p>
+</div>
+</div>
+</div>
+<!-- 第二筆：左文右圖 -->
+<div class="row align-items-center mb-5">
+<div class="col-md-6 mt-3">
+<div class="timeline-content">
+<h5 data-i18n="timeline2_date">JUN 2005 – JUL 2015</h5>
+<h3 data-i18n="timeline2_role">Sales Supervisor｜COMPANY_D</h3>
+<div class="timeline-divider"></div>
+<p data-i18n="timeline2_p">
+                            負責汽車底盤轉向與懸吊零件的全球銷售及客戶服務，
+                            建立加拿大、墨西哥、波蘭、德國、立陶宛及中東多國的獨家代理網絡。
+                            帶領並培訓業務團隊、建立部門 SOP，參與 AAPEX 與 Automechanika 等國際展會。
+                        </p>
+</div>
+</div>
+<div class="col-md-6 mt-3">
+<div class="box roller-l">
+<img alt="國際汽車零件業務拓展" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1000"/>
+<div class="rollerbox-l" style="background-color: rgba(88,104,117,0.93)">
+<h3 data-i18n="timeline2_image_title">國際市場拓展</h3>
+<p>GLOBAL SALES &amp; DISTRIBUTION</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 第三筆：左圖右文 -->
+<div class="row align-items-center mb-5">
+<div class="col-md-6 mt-3">
+<div class="box roller-t">
+<img alt="電動工具國際銷售" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1000"/>
+<div class="rollerbox-t" style="background-color: rgba(88,104,117,0.93)">
+<h3 data-i18n="timeline3_image_title">電動工具銷售</h3>
+<p>POWER TOOLS SALES</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mt-3">
+<div class="timeline-content">
+<h5 data-i18n="timeline3_date">DEC 2004 – MAY 2005</h5>
+<h3 data-i18n="timeline3_role">Sales Representative｜COMPANY_C</h3>
+<div class="timeline-divider"></div>
+<p data-i18n="timeline3_p">
+                            負責電動工具產品銷售與行政相關工作，直接向業務經理及執行長彙報，
+                            並代表公司參與拉斯維加斯五金展，
+                            累積國際展會、客戶溝通及銷售營運經驗。
+                        </p>
+</div>
+</div>
+</div>
+<!-- 第四筆：左文右圖 -->
+<div class="row align-items-center mb-5">
+<div class="col-md-6 mt-3">
+<div class="timeline-content">
+<h5 data-i18n="timeline4_date">1999 – 2004</h5>
+<h3 data-i18n="timeline4_role">Marketing Executive → Branch Manager → Manager</h3>
+<div class="timeline-divider"></div>
+<p data-i18n="timeline4_p">
+                            歷任行銷主管、分公司經理及中國區經理，管理香港代表處的人資、
+                            財務與進出口文件，參與產品研發及季節性商品開發。
+                            三年內將香港辦事處營業額由 USD 1.5M 提升至 USD 5M，
+                            並為中國營運建立新的國際業務團隊。
+                        </p>
+</div>
+</div>
+<div class="col-md-6 mt-3">
+<div class="box roller-b">
+<img alt="香港與中國市場營運管理" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1000"/>
+<div class="rollerbox-b" style="background-color: rgba(88,104,117,0.93)">
+<h3 data-i18n="timeline4_image_title">香港與中國市場營運</h3>
+<p>REGIONAL BUSINESS MANAGEMENT</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 聯絡資訊 -->
+<footer>
+<div class="container">
+<h3 class="fw-bold mb-4" data-i18n="footer_title">學歷 &amp; PROFESSIONAL DETAILS</h3>
+<p data-i18n="footer_education">Education：MA, Applied Foreign Language (Business Track), YunTech University</p>
+<p data-i18n="footer_english">English Communication：TOEIC 870</p>
+<p data-i18n="footer_skills">Core Skills：International Trade · Microsoft Office · Cross-cultural Communication</p>
+<hr class="my-4"/>
+<p class="mb-0" data-i18n="footer_copyright">© 2026 K | 資深國際業務開發暨商品企劃經理</p>
+</div>
+</footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+  var translations = {
+'profile_h4': { zh: '資深國際業務開發暨商品企劃經理', en: 'Senior Business Development & Merchandising Manager' },
+'profile_tagline': { zh: '國際業務｜全球關鍵客戶｜產品開發', en: 'INTERNATIONAL SALES | GLOBAL KEY ACCOUNTS | PRODUCT DEVELOPMENT' },
+'profile_intro': { zh: '具 25 年以上國際貿易、商品企劃、業務營運及全球關鍵客戶管理經驗。擅長拓展國際市場、建立海外代理與經銷網絡、推動品牌及產品開發專案，並透過跨部門協作與流程優化，支持業務成長與營運效率。', en: 'International business and merchandising professional with 25+ years of experience in international trade, sales operations, product development, and global key account management. Experienced in expanding international markets, building overseas agent and distributor networks, advancing brand and product programs, and improving business performance through cross-functional collaboration and process optimization.' },
+'profile_section_title': { zh: '專業履歷｜PROFESSIONAL PROFILE', en: 'PROFESSIONAL PROFILE' },
+'box1_title': { zh: '專業摘要', en: 'PROFESSIONAL SUMMARY' },
+'box1_label': { zh: '專業摘要', en: 'PROFESSIONAL SUMMARY' },
+'box1_overlay_title': { zh: '國際業務領導與市場拓展', en: 'INTERNATIONAL BUSINESS & MARKET DEVELOPMENT' },
+'box1_overlay_p': { zh: '擁有 25 年以上國際貿易、商品企劃、銷售營運及全球重點客戶管理經驗。曾拓展多國代理通路、管理大型零售客戶與授權商品開發，並推動業績成長、標準作業流程建立及跨部門合作。', en: 'Brings 25+ years of experience in international trade, merchandising, sales operations, and global key account management. Background includes developing distributor networks, managing major retail accounts and licensed products, supporting sales growth, establishing standard operating procedures, and coordinating cross-functional teams.' },
+'box2_title': { zh: '核心專長', en: 'CORE COMPETENCIES' },
+'box2_label': { zh: '核心專長', en: 'CORE COMPETENCIES' },
+'box2_overlay_title': { zh: '全球商務與營運', en: 'GLOBAL BUSINESS & OPERATIONS' },
+'box2_overlay_p': { zh: '全球業務開發與關鍵客戶管理<br>商品開發、採購與供應商管理<br>國際貿易、商務談判與成本控管<br>SOP 流程優化、市場與趨勢分析', en: 'Global business development and key account management<br>Merchandising, product development, and supplier management<br>International trade, commercial negotiation, and cost control<br>SOP optimization, market intelligence, and trend analysis' },
+'box3_title': { zh: '代表成果', en: 'SELECTED ACHIEVEMENTS' },
+'box3_label': { zh: '代表成果', en: 'SELECTED ACHIEVEMENTS' },
+'box3_overlay_title': { zh: '品牌專案與市場拓展', en: 'BRAND PROGRAMS & MARKET EXPANSION' },
+'box3_overlay_p': { zh: '最近一份商品管理職務期間，平均年度銷售成長達 10%；另於三年內將香港辦事處營業額由 150 萬美元提升至 500 萬美元。具零售商自有品牌及授權商品專案管理經驗。', en: 'Delivered average annual sales growth of 10% in the most recent merchandising role. Earlier, increased Hong Kong office sales from USD 1.5 million to USD 5 million within three years. Experienced in retailer private-label and licensed-product programs.' },
+'box4_title': { zh: '職涯定位', en: 'CAREER FOCUS' },
+'box4_label': { zh: '職涯目標', en: 'CAREER OBJECTIVE' },
+'box4_overlay_title': { zh: '資深國際業務／商品管理', en: 'SENIOR BUSINESS DEVELOPMENT & MERCHANDISING' },
+'box4_overlay_p': { zh: '期望運用全球業務開發、商品企劃與銷售管理經驗，深化國際客戶合作，支持企業營收成長，並持續提升營運效率。', en: 'Seeking to apply global business development, merchandising, and sales management experience to strengthen international customer partnerships, support profitable growth, and improve operational effectiveness.' },
+'timeline_title': { zh: '職涯發展與關鍵成果', en: 'CAREER TIMELINE & KEY ACHIEVEMENTS' },
+'timeline1_image_title': { zh: '商品與品牌管理', en: 'MERCHANDISING & BRAND DEVELOPMENT' },
+'timeline1_date': { zh: '2018 年 3 月－2025 年 10 月', en: 'MAR 2018 – OCT 2025' },
+'timeline1_role': { zh: '商品經理｜COMPANY_E', en: 'Merchandise Manager | COMPANY_E' },
+'timeline1_p': { zh: '負責日常與季節性裝飾品、居家生活商品線，服務 Walmart、Target、JoAnn、Big Lots 及 El Corte Inglés 等客戶。任內平均年度銷售成長達 10%；參與零售商自有品牌專案及 Disney、Dr. Seuss 等授權商品開發，並協調設計、生產、品管與財務團隊。', en: 'Managed everyday and seasonal décor, home, and lifestyle product lines for customers including Walmart, Target, JoAnn, Big Lots, and El Corte Inglés. Achieved average annual sales growth of 10%; supported retailer private-label programs and licensed products, including Disney and Dr. Seuss, while coordinating design, production, quality, and finance teams.' },
+'timeline2_image_title': { zh: '國際市場拓展', en: 'GLOBAL SALES & DISTRIBUTION' },
+'timeline2_date': { zh: '2005 年 6 月－2015 年 7 月', en: 'JUN 2005 – JUL 2015' },
+'timeline2_role': { zh: '業務主管｜COMPANY_D', en: 'Sales Supervisor | COMPANY_D' },
+'timeline2_p': { zh: '負責汽車底盤轉向與懸吊零件的國際銷售及客戶服務，於加拿大、墨西哥、波蘭、德國、立陶宛及中東多國建立獨家代理／經銷關係。招募並培訓業務人員、建立部門 SOP，並代表公司參與 AAPEX、Automechanika 等國際展會。', en: 'Managed international sales and customer service for steering and suspension components. Established exclusive agent or distributor relationships in Canada, Mexico, Poland, Germany, Lithuania, and multiple Middle Eastern markets. Recruited and trained sales staff, developed departmental SOPs, and represented the company at international trade shows including AAPEX and Automechanika.' },
+'timeline3_image_title': { zh: '電動工具銷售', en: 'POWER TOOLS SALES' },
+'timeline3_date': { zh: '2004 年 12 月－2005 年 5 月', en: 'DEC 2004 – MAY 2005' },
+'timeline3_role': { zh: '業務代表｜COMPANY_C', en: 'Sales Representative | COMPANY_C' },
+'timeline3_p': { zh: '負責電動工具銷售及相關行政工作，直接向業務經理與執行長彙報，並參與拉斯維加斯五金展，累積國際展會、客戶溝通及銷售營運經驗。', en: 'Handled power-tool sales and related administrative duties, reporting to the Sales Manager and CEO. Attended the Las Vegas Hardware Show and gained experience in trade-show support, customer communication, and sales operations.' },
+'timeline4_date': { zh: '1999－2004 年', en: '1999 – 2004' },
+'timeline4_role': { zh: '行銷專員 → 分公司經理 → 中國基地經理', en: 'Marketing Executive → Branch Manager → Manager (China Base)' },
+'timeline4_p': { zh: '歷任行銷專員、分公司經理及中國基地經理，負責香港代表處人資、財務與進出口文件，並支援產品研發、季節性商品開發及工廠協調。三年內將香港辦事處營業額由 150 萬美元提升至 500 萬美元，並為中國營運建立新的國際業務團隊。', en: 'Progressed through marketing, branch management, and China-based management roles. Oversaw Hong Kong representative-office administration, including HR, finance, and import/export documentation, and supported product R&D, seasonal product development, and factory coordination. Increased Hong Kong office sales from USD 1.5 million to USD 5 million within three years and established a new international sales team for China operations.' },
+'timeline4_image_title': { zh: '香港與中國市場營運', en: 'HONG KONG & CHINA OPERATIONS' },
+'footer_title': { zh: '學歷與專業資訊', en: 'EDUCATION & PROFESSIONAL DETAILS' },
+'footer_education': { zh: '學歷：雲林科技大學應用外語系（商務組）碩士', en: 'Education: MA in Applied Foreign Language (Business Track), YunTech University' },
+'footer_english': { zh: '英文能力：TOEIC 870 分', en: 'English Proficiency: TOEIC 870' },
+'footer_skills': { zh: '專業技能：國際貿易、Microsoft Office、跨文化溝通', en: 'Core Skills: International Trade, Microsoft Office, Cross-cultural Communication' },
+'footer_copyright': { zh: '© 2026 K | 資深國際業務開發暨商品企劃經理', en: '© 2026 K | Senior Business Development & Merchandising Manager' },
+    'footer_copyright_title': { zh: '資深國際業務開發暨商品企劃經理', en: 'Senior Business Development & Merchandising Manager' }
+};
+  function setResumeLanguage(lang) {
+    lang = lang === 'en' ? 'en' : 'zh';
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+    try {
+      window.localStorage.setItem('resumeLanguage', lang);
+    } catch (error) {
+      // 無法使用 localStorage 時，當次頁面仍可正常切換語言。
+    }
+    var title = document.querySelector('title');
+    if (title) title.textContent = lang === 'zh' ? 'K | 資深國際業務開發暨商品企劃經理' : 'K | Senior Business Development & Merchandising Manager';
+    document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+    });
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var item = translations[el.getAttribute('data-i18n')];
+      if (item) el.innerHTML = item[lang];
+    });
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setResumeLanguage(btn.getAttribute('data-set-lang'));
+    });
+  });
+
+  // 優先讀取上次選擇的語言；若瀏覽器封鎖 localStorage，則預設繁體中文。
+  var initialLanguage = 'zh';
+  try {
+    var savedLanguage = window.localStorage.getItem('resumeLanguage');
+    if (savedLanguage === 'zh' || savedLanguage === 'en') {
+      initialLanguage = savedLanguage;
+    }
+  } catch (error) {
+    // 私密瀏覽或瀏覽器限制儲存時，不影響語言切換功能。
+  }
+
+  // 將語言設定套用至所有 data-i18n 內容。
+  setResumeLanguage(initialLanguage);
+})();
+</script>
+</body></html>
