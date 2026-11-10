@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA-個人履歷排版練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Myallcss.css">
+    <link rel="stylesheet" href="css/all.min.css">
+  
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+body {
+	text-align: center;
+    margin-top: 40vh;
+}
+.counter {
+	font-family: 'Rampart One', cursive;
+	font-size: 5em;
+	margin: 100px auto;
+}
+.counter:not(.is-visible) {
+	visibility: hidden;
+}
+
+    </style>
+</head>
+
+<body>
+ 
+<!--section 01 -- 社群連結 -->
+<section id="s01" class="bg-secondary">
+    <div class="container py-2">
+        <div class="row">
+            <div class="text-end py-2">
+                <a href="#" class="link-dark text-decoration-none">
+                    <i class="fa-brands fa-square-x-twitter fa-canvas-roomy fa-2x "></i></a>
+               <a href="#" class="link-primary text-decoration-none">
+                    <i class="fa-brands fa-instagram text-danger fa-2x fa-canvas-roomy"></i></a>
+                 <a href="#" class="link-dark text-decoration-none">
+                    <i class="fa-brands fa-threads fa-2x"></i></a>
+
+                <i class="fa-brands fa-x-twitter fa-2x text-warning">
+                    <i class="fa-brands fa-x-twitter fa-2x"></i></a>
+                </i>
+            </div>
+        </div>
+    </div>
+</section>
+<!--section 02 --選單  -->
+<section id="s02" class="bg-dark">
+    <div class="container">
+       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+       
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+     <i class="fa-brands fa-connectdevelop fa-canvas-roomy fa-2x text-warning"></i></a>
+
+   
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+        
+         <i class="fa-solid fa-house fa-canvas-roomy fa-2x text-info"></i>"首頁"</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">工作經驗</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            專業項目
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <div>
+        <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#registerModal">註冊</button>
+        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+      </div>
+      <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> 
+      </form>表單這裡用不到-->
+    </div>
+  </div>
+</nav> 
+
+        
+    </div>
+</section>
+<!--registerModal-->
+<!-- Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-bg-warning">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            
+            <div class="col-6">
+                <h1>會員條款與使用手則</h1>
+                <p>改進麻煩想起一隻評。</p>
+                <p>機場發表聲音，心靈。</p>
+                <p>權利重量同時，思維。</p>
+                <p>處理器，點評下了農。</p>
+                <p>現金探索，偉大語言。</p>
+
+            <div class="form-check form-switch">
+                <input type="checkbox" checked class="form-check-input" name="" id="">
+                <label for="" class="form-check-label">遵守</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="username" class="form-label">帳號</label>
+                    <input type="text" class="form-control" id="username" placeholder="請輸入1個大寫英文......">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="re-password" class="form-label">確認密碼</label>
+                    <input type="password" class="form-control" id="re-password">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control form-control-lg" id="email">
+                </div>
+                </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="me-auto text-decoration-none" data-bs-toggle="modal" data-bs-target="#loginModal">已有帳號、直接登入</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">確認</button>
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--loginModal-->
+
+<!-- loginModal -->
+<div class="modal fade"
+     id="loginModal"
+     tabindex="-1"
+     aria-labelledby="loginModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- 標題 -->
+            <div class="modal-header text-bg-success">
+                <h1 class="modal-title fs-5" id="loginModalLabel">
+                    會員登入
+                </h1>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+
+            <!-- 表單內容 -->
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="loginUsername" class="form-label">
+                        帳號
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           id="loginUsername">
+                </div>
+
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">
+                        密碼
+                    </label>
+                    <input type="password"
+                           class="form-control"
+                           id="loginPassword">
+                </div>
+            </div>
+
+            <!-- 底部按鈕 -->
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    取消
+                </button>
+
+                <button type="button" class="btn btn-primary">
+                    確認登入
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+ 
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header text-bg-success">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+     <div class="modal-body">
+      <div class="mb-3">
+                    <label for="username" class="form-label">帳號</label>
+                    <input type="text" class="form-control" id="username" >
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="modal-footer d-flex">
+                    <a href="#" class="me-auto text-decoration-none" data-bs-toggle="modal" data-bs-target="#registerModal">還沒有帳號，去註冊一個帳號。</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認登入</button>
+            </div> -->
+        <!-- <button type="button" class="btn btn-primary">確認</button>   
+        </div> -->
+        <!-- </div>  -->
+</div>
+
+<!--section 03 -- 幻燈片效果 carousel  -->
+<section id="03">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    
+    <div class="carousel-item bg-img active" style="background-image: url(Images/landscape01.avif);height: 85vh;">
+      <div class="carousel-caption d-none d-md-block p-3 rounded-3" style="background-color: rgba(0, 0,0, 0.4);">
+        <h3>標題001</h3>
+        <h5>First slide label</h5>
+        <p>避免繼續你們的一段時間發貼孤獨，還是手中這個問題計算選擇，還能需要標準轉載鑒定，兒童那種，站點更新。</p>
+      </div>
+    </div>
+    <div class="carousel-item bg-img" style="background-image: url(Images/landscape02.avif);height: 85vh;">
+      <div class="carousel-caption d-none d-md-block p-3 rounded-3" style="background-color: rgba(0, 0, 0, 0.4);">
+        <h3>標題001</h3>
+        <h5>First slide label</h5>
+        <p>避免繼續你們的一段時間發貼孤獨，還是手中這個問題計算選擇，還能需要標準轉載鑒定，兒童那種，站點更新。</p>
+      </div>
+    </div>
+    <div class="carousel-item bg-img " style="background-image: url(Images/landscape03.avif);height: 85vh;">
+      <div class="carousel-caption d-none d-md-block p-3 rounded-3" style="background-color: rgba(0, 0, 0, 0.4);">
+        <h3>標題001</h3>
+        <h5>First slide label</h5>
+        <p>避免繼續你們的一段時間發貼孤獨，還是手中這個問題計算選擇，還能需要標準轉載鑒定，兒童那種，站點更新。</p>
+      </div>
+    </div>
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>  
+
+</section>
+
+
+<!--section 04 -- counterup 可以量化的數據  -->
+<section id="04">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 bg-img" style="background-image: url(Images/landscape01.avif);"></div>
+            <div class="col-md-7 py-5 mt-5 text-center">
+                <h1>獲取僅供引起電視也。</h1>
+                <h1>獲取僅供引起電視也。</h1>
+                <p>驚訝臉色對待如此，網咖令人，走。</p>
+                <p>未知通訊以便近日位元儘量，意識。</p>
+                <div class="row mt-5">
+                    <div class="col-md-3 text-center">
+                        <h4>工作年資</h4>
+                        <div class="h4"><span class="h2 text-danger fw-bold counter01">20</span>年</div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h4>累計作品</h4>
+                        <div class="h4"><span class="h2 text-danger fw-bold counter02">20</span>件</div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h4>合作客戶</h4>
+                        <div class="h4"><span class="h2 text-danger fw-bold counter03">100</span>家</div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h4>客戶滿意度</h4>
+                        <div class="h4"><span class="h2 text-danger fw-bold counter04">98</span>%</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- <div class="space">Scroll down to see the counter</div>
+	<div class="counter">1,123,456.78</div> -->
+
+
+
+<!--section 04 -- counterup 可以量化的數據  _AI修改-->
+<!--section 04 -- counterup 可以量化的數據  _待生成AI修改-->
+<!--section 05 -- 個人特質(風格)-->
+<section id="05">
+    <div class="container">
+        <h2 class="text-center display-4 fw-900 my-3">我的工作信念</h2>
+        <div class="row g-5">
+            <div class="col-md-4 text-center shadow-sm">
+                <i class="fa-solid fa-bullseye fa-canvas-roomy fa-4x"></i>
+                <h3 class="my-4">主動解決問題</h3>
+                <p>面對問題線釐清拆解</p>
+             </div>
+             <div class="col-md-4 text-center shadow-sm">
+                <i class="fa-solid fa-bullseye fa-canvas-roomy fa-4x"></i>
+                <h3 class="my-4">主動解決問題</h3>
+                <p>面對問題線釐清拆解</p>
+             </div>
+             <div class="col-md-4 text-center shadow-sm">
+                <i class="fa-solid fa-bullseye fa-canvas-roomy fa-4x"></i>
+                <h3 class="my-4">主動解決問題</h3>
+                <p>面對問題線釐清拆解</p>
+            </div>
+        </div>
+ </div>
+ </section>
+
+<!--section 05 -- 個人特質(風格)--AI-->
+
+<!--section 06 -- 關於我-->
+<section id="06" style="position: relative;">
+    <div class="row">
+        <div class="col-md-5 bg-img d-none d-md-block" style="background-image: url(Images/landscape02.avif);height: 500px; position: absolute; top: 0; bottom: 0;"></div>
+ </div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md-7">
+                <div class="h2">關於我<span class="text-success">ABOUT ME</span></h2>
+                
+                
+                <P>我是一位熱愛程式開發的網頁開發者，對前端技術、互動設計與使用者體驗充滿熱情。喜歡透過HTML, CSS, JAVASCRIPT 等技術，將創意與想法轉化為實際的網頁作品、並在每一次開發過程中累積經驗、提升專業能力。</P>
+
+                起點二手溫暖平方米記住加入時間做出點此一大敵人感染放下，負責獎勵半年朋友放心語文，廣告一番有着世界。資格一絲前面新人，貼圖順利重量用戶名也想不限已經，寬頻夥伴空氣友情事實擔心尋找最後，第一到底，觀念。
+                <P>相信最好的作品不只是..............</P>
+                    <P>目前正在累積XXX作品，增強XX能力</P>
+                    <a href="#" class="btn btn-warning w-100">了解更多</a>
+           </div>
+        </div>
+    </div>
+
+</section>
+
+<!--01: 閱讀檔案即可，超級簡短說明
+02:
+針對session 07幫我產生相關程式碼，規則如下:
+1.依據程式碼的內容當成提示詞產生作品敘述與簡介，按鈕連結（href)由我自行設定，
+2.產生4筆作品介紹 
+3.不可以大幅修改版面，加入css以亮黑色為機體幫我做顏色配置
+4.產生完整指令供我複製
+-->
+<!--section 07 -- 作品集-->
+<section id="07">
+    <div class="container my-5">
+<div class="h1 text-center fw-900 text-info my-4">精選作品集</div>
+<p class="text-center">我是一位熱愛程式開發的網頁開發者,  以下是我在學習過程中累積下來的練習作品從簡單到複雜，後前端到後端，透過.... </p>
+<div class="row">
+    <div class="col-md-6 d-flex align-items-center">
+        <i class="fa-solid fa-laptop fa-8x text-danger"></i>
+        <div>
+            <div class="h3">作品編號01(限制6個字數)</div>
+            <p class="mb-0">使用技術:HTML/CSS/PHP</p>
+            <p>作品簡介:結合前投切版布局，...約50個字針對作品主題與心得介紹，必須強調學習心得。</p>
+            <a href="#" class="btn btn-outline-success d-block">
+             <i class="fa-solid fa-laptop"></i>作品連接</a>
+            </div>
+    </div>
+        <div class="col-md-6 d-flex align-items-center">
+        <i class="fa-solid fa-laptop fa-8x text-danger"></i>
+        <div>
+            <div class="h3">作品編號02(限制6個字數)</div>
+            <p class="mb-0">使用技術:HTML/CSS/PHP</p>
+            <p>作品簡介:結合前投切版布局，...約50個字針對作品主題與心得介紹，必須強調學習心得。</p>
+            <a href="#" class="btn btn-outline-success d-block">
+             <i class="fa-solid fa-laptop"></i>作品連接</a>
+            </div>
+    </div>
+        <div class="col-md-6 d-flex align-items-center">
+        <i class="fa-solid fa-laptop fa-8x text-danger"></i>
+        <div>
+            <div class="h3">作品編號03(限制6個字數)</div>
+            <p class="mb-0">使用技術:HTML/CSS/PHP</p>
+            <p>作品簡介:結合前投切版布局，...約50個字針對作品主題與心得介紹，必須強調學習心得。</p>
+            <a href="#" class="btn btn-outline-success d-block">
+             <i class="fa-solid fa-laptop"></i>作品連接</a>
+            </div>
+    </div>
+        <div class="col-md-6 d-flex align-items-center">
+        <i class="fa-solid fa-laptop fa-8x text-danger"></i>
+        <div>
+            <div class="h3">作品編號04(限制6個字數)</div>
+            <p class="mb-0">使用技術:HTML/CSS/PHP</p>
+            <p>作品簡介:結合前投切版布局，...約50個字針對作品主題與心得介紹，必須強調學習心得。</p>
+            <a href="#" class="btn btn-outline-success d-block">
+             <i class="fa-solid fa-laptop"></i>作品連接</a>
+            </div>
+    </div>
+</div>
+
+</div>
+</section>
+<!--section 07 -- 作品集--AI生成-->
+<!--section 07 -- 作品集--待生成-->
+
+     <!-- section 8 -- 個人學經歷 AI生成-->
+<section id="08" style="position: relative;">
+    <div class="container">
+        <div class="row"> 
+       <div class="col-md-7">
+        <div class="h1 text-center fw-900 text-info my-4">學經歷介紹</div>
+        <dl class="row">
+            <dt class="col-sm-3">個人特質</dt>
+            <dd class="col-sm-9"> 工作經驗共5年的前端工程師</dd>
+
+             <dt class="col-sm-3">學歷</dt>
+            <dd class="col-sm-9"> 工作經驗共5年的前端工程師</dd>
+
+             <dt class="col-sm-3">工作年資</dt>
+            <dd class="col-sm-9"> 工作經驗共5年的前端工程師</dd>
+
+            <dt class="col-sm-3">xx公司經驗</dt>
+            <dd class="col-sm-9"> 工作經驗共5年的前端工程師工作經驗共5年的前端工程師</dd>
+
+             <dt class="col-sm-3">xx公司經驗</dt>
+            <dd class="col-sm-9"> 工作經驗共10年的前端工程師工作經驗共5年的前端工程師</dd>
+            
+
+        </dl>
+        
+     
+
+       </div> 
+    </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-md-5 bg-img d-none d-md-block"
+            style="position: absolUte; background-image: url(Images/landscape03.avif);top: 0; bottom: 0;">
+        </div>
+    </div>
+</section>
+ <!-- section 8 -- 個人學經歷 AI生成--待生成-->
+
+   </section>
+ <!-- section 8 -- 學經歷介紹-- AI生成-->
+ <!-- section 8 -- 學經歷介紹-- AI待生成-->
+   
+ <!-- section 9 -- 學經歷介紹-->
+  <section id="s09">
+    <div class="container py-4">
+        <div class="h1 text-center section-title my-4">請聯絡我 CONTACT ME</div>
+        <div class="row">
+            <div class="col-md-6">
+                 <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="xxxxxx">
+                        <label for="username" class="form-label">姓名</label>
+                    </div>
+                <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="xxxxxx">
+                        <label for="email" class="form-label">電子信箱</label>
+                    </div>
+                    <select name="" id="" class="form-select form-control-lg">
+                        <option value="" class="text-center" disabled selected>....聯絡主題</option>
+                        <option value="面試邀約" >面試邀約</option>
+                        <option value="專案討論" >專案討論</option>
+                        <option value="接案洽詢" >接案洽詢</option>
+                        <option value="其它" >其它</option>
+                    </select>
+                    <textarea name="" id="" class="form-contorl my-3" cols="10" rows="8" placeholder="請輸入訊息內容....."></textarea>
+                    <div class="text-end my-3">
+                        <button class="btn btn-secondary">取消</button>
+                        <button class="btn btn-primary">送出</button>
+                    </div>
+                    </div>
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.0342008482976!2d120.61012299999999!3d24.170533300000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e048d342aa9%3A0x2b6f18a6783fa3b!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5Lit5b2w5oqV5YiG572y77yI6Ie65Lit6IG36KiT5bGA77yJ!5e0!3m2!1szh-TW!2stw!4v1793675502591!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                
+            </div>
+        </div>
+    </div>
+
+  </section>
+
+ <!-- section 10 -- 未對展望-->
+  <section id="s10">
+    <div class="row">
+        <div class="col-md-6 bg-img g-5" style="background-image: url(Images/landscape03.avif);">
+            <div class="col-8 p-3 shadow-sm" style="background-color: rgb(197, 176, 188,0.3);">
+            <div class="h1 text-light">未來願景</div><small class="text-info">Future Vision</small>
+            <div class="h2 text-white">持續精進，累績實力</div>
+            <p class="text-white">我認為優秀的工程師不是只有熟悉語法，也要...... 持續深化前端技術...所有庫存雲林已被批發大戰相同回家安排思想相當，演唱商務出版社動畫格式比例人群實際上，成功基於起點系。
+
+                (prompt--### 此處文稿與排版不要用長篇大論，用具較簡短的名詞讓零碎時間為前提的人也可以清楚抓到重點，必要時可以加上CSS和技術標籤，（產生150字以下，使用ul li 排版)
+            </p>
+            
+            <a href="#s07" class="btn btn-outline-info w-100">查看我的作品</a>
+        </div>
+    </div>
+    <div class="col-md-6 bg-img g-5" style="background-image: url(Images/landscape03.avif);">
+            <div class="col-8 p-3 shadow-sm" style="background-color: rgb(207, 178, 192,0.3);">
+            <div class="h1 text-light">職涯發展</div><small class="text-info">Career Development</small>
+            <div class="h2 text-white">探索AI...</div>
+            <p class="text-white">我認為優秀的工程師不是只有熟悉語法，也要...... 持續深化前端技術...所有庫存雲林已被批發大戰相同回家安排思想相當，演唱商務出版社動畫格式比例人群實際上，成功基於起點系。</p>
+            
+            <a href="#s09" class="btn btn-outline-info w-100">與我聯絡</a>
+        </div>
+        </div>
+ </div>
+  </section>
+
+
+   <!-- section 11 -- oter --->
+<section>
+
+</section>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
+    <script>
+
+    const counterUp = window.counterUp.default
+
+const callback = entries => {
+	entries.forEach( entry => {
+		const el = entry.target
+		if ( entry.isIntersecting && ! el.classList.contains( 'is-visible' ) ) {
+			counterUp( el, {
+				duration: 5000,
+				delay: 16,
+			} )
+			el.classList.add( 'is-visible' )
+		}
+	} )
+}
+
+const IO = new IntersectionObserver( callback, { threshold: 1 } )
+
+const el01 = document.querySelector('.counter01')
+IO.observe( el01 )
+const el02 = document.querySelector('.counter02')
+IO.observe( el02 )
+const el03 = document.querySelector('.counter03')
+IO.observe( el03 )
+const el04 = document.querySelector('.counter04')
+IO.observe( el04 )
+
+</script>
+</body>
+</html>

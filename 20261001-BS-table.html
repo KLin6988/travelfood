@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap - Table (表格)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Myallcss.css">
+    <style>
+        :root {
+            --border01: #d4be40;
+        }
+
+        @media screen and (max-width: 768px) {
+
+
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                margin-top: 15px;
+                border: 1px solid var(--border01);
+                border-radius: 5px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+
+            }
+
+            /*偽元素*/
+            .table-rwd tbody tr td::before {
+                content: attr(data-th)":";
+                font-weight: 900;
+                color: blueviolet;
+                font-style: 20px;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 10px;
+
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+                font-size: 18px;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container"></div>
+    <div class="display-2 fw-900 text-center mt-4">飲料產品列表</div>
+    <table class="table mt-4 table-bordered  table-sm table-rwd">
+        <thead class="table-dark">
+            <tr>
+                <th> 產品編號 </th>
+                <th> 產品名稱 </th>
+                <th> 產品價格 </th>
+                <th> 產品數量 </th>
+                <th> 產品備註 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-th="產品編號"><span>03</span></td>
+                <td data-th="產品名稱"><span>摩卡咖啡</span></td>
+                <td data-th="產品價格"><span>70</span></td>
+                <td data-th="產品數量"><span>10</span></td>
+                <td data-th="產品備註">
+                    <span>玻璃體制面積靈活附件反覆級別天使羅東，靈魂最終標籤記錄會議之間特殊還是經營許可證，辦公探索要在地位尤其是無關隊員文章，發貼這場彷彿文字眼睛身邊，市委在這感覺到你看回事信心特點穿著公共，影響釣魚招標授權為此認真包裝明天共同數量原始碼，並不記憶高效歡迎您一張。</span>
+                </td>
+            </tr>
+        </tbody>
+
+
+        <!-- <thead class="table-dark">
+            <tr>
+                <th> 產品編號 </th>
+                <th> 產品名稱 </th>
+                <th> 產品價格 </th>
+                <th> 產品數量 </th>
+                <th> 產品備註 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary">
+                <td>01</td>
+                <td>美式咖啡 </td>
+                <td>60</td>
+                <td>10</td>
+                <td>無糖去冰</td>
+            </tr>
+            <tr>
+                <td class="bg-primary">02</td>
+                <td class="table-success">拿鐵咖啡</td>
+                <td>60</td>
+                <td>10</td>
+                <td>無糖去冰</td>
+            </tr>
+             <tr>
+                <td>03</td>
+                <td>摩卡咖啡</td>
+                <td>70</td>
+                <td>10</td>
+                <td>無糖去冰</td>
+            </tr>
+            <tr class="table-danger">
+                <td>04</td>
+                <td>卡布奇諾咖啡</td>
+                <td>70</td>
+                <td>10</td>
+                <td>無糖去冰</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>摩卡咖啡</td>
+                <td>70</td>
+                <td>10</td>
+                <td>無糖去冰</td>
+            </tr>
+            <tr class="table-info">
+                <td>06</td>
+                <td class="table-warning">西西里咖啡</td>
+                <td>80</td>
+                <td>10</td>
+                <td>微糖微冰</td>
+            </tr>
+        </tbody> -->
+    </table>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

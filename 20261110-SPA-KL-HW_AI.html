@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K.Lin | Global Executive Portfolio </title>
+    <!-- 沿用 Bootstrap, FontAwesome, Animate.css 等核心資源 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        /* ===== 外商面試首選：高端女性專業俐落配色方案 (Modern Female Executive Palette) ===== */
+        :root {
+            /* 主背景與基調：午夜深藍 / 藏青 (Midnight Navy) - 展現權威、專業與誠信 */
+            --exec-bg-dark: #0f172a;
+            --exec-bg-card: rgba(30, 41, 59, 0.82);
+            --exec-card-border: rgba(226, 232, 240, 0.15);
+            
+            /* 主主調輔助色：質感香檳金 / 玫瑰古銅 (Champagne Gold / Rose Bronze) - 展現女性優雅與高級質感 */
+            --exec-accent-gold: #e2b714;
+            --exec-accent-champagne: #d4af37;
+            --exec-accent-rose: #e0a96d;
+            
+            /* 點綴色：深灰海軍藍與莫蘭迪冷灰粉 (Slate Rose / Off-White) */
+            --exec-slate-light: #f8fafc;
+            --exec-text-sub: #94a3b8;
+            --exec-teal-accent: #38bdf8;
+            
+            /* 俐落高階漸層 */
+            --exec-gradient-header: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, #e2b714 100%);
+            --exec-glass-border: 1px solid rgba(212, 175, 55, 0.3);
+            --exec-glow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(212, 175, 55, 0.12);
+        }
+
+        body {
+            background-color: var(--exec-bg-dark);
+            color: var(--exec-slate-light);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        /* 全域星空流體微光背景 Canvas */
+        #fluid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+
+        /* 玻璃擬態高階商務卡片 */
+        .nordic-glass {
+            background: var(--exec-bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: var(--exec-glass-border);
+            border-radius: 0.85rem;
+            box-shadow: var(--exec-glow);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nordic-glass:hover {
+            border-color: var(--exec-accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), 0 0 20px rgba(212, 175, 55, 0.25);
+        }
+
+        /* 標題文字金屬質感漸層 */
+        .text-aurora {
+            background: var(--exec-gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* ===== Roller 卷軸遮罩特效（極簡俐落商務款） ===== */
+        .imgbox {
+            height: 280px;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--exec-card-border);
+        }
+
+        .roller-t, .roller-b, .roller-l, .roller-r {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .rollerbox-t, .rollerbox-b, .rollerbox-l, .rollerbox-r {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(6px);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .roller-t .rollerbox-t { transform: translateY(-100%); }
+        .roller-t:hover .rollerbox-t { transform: translateY(0); }
+
+        .roller-b .rollerbox-b { transform: translateY(100%); }
+        .roller-b:hover .rollerbox-b { transform: translateY(0); }
+
+        .roller-l .rollerbox-l { transform: translateX(-100%); }
+        .roller-l:hover .rollerbox-l { transform: translateX(0); }
+
+        .roller-r .rollerbox-r { transform: translateX(100%); }
+        .roller-r:hover .rollerbox-r { transform: translateX(0); }
+
+        /* ===== Timeline 時間軸樣式（極簡精品金屬金貫穿線） ===== */
+        .timeline-section {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            width: 3px;
+            background: linear-gradient(180deg, var(--exec-accent-gold) 0%, rgba(212, 175, 55, 0.4) 50%, var(--exec-teal-accent) 100%);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 16px;
+            height: 16px;
+            background-color: var(--exec-accent-gold);
+            border-radius: 50%;
+            border: 3px solid #0f172a;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50%;
+            margin-top: -8px;
+            z-index: 3;
+            box-shadow: 0 0 12px var(--exec-accent-gold);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline-section::before { left: 20px; }
+            .timeline-section-pointer::before { left: 20px; top: 20px; margin-top: 0; }
+            .timeline-section-pointer { padding-left: 45px; }
+        }
+
+        /* Section 01: 社群連結列 */
+        #s01 {
+            background: rgba(15, 23, 42, 0.98);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+        }
+
+        /* Section 02: 導覽列 Navbar */
+        #s02 {
+            background: rgba(15, 23, 42, 0.92) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .navbar-brand span {
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        /* Section 03: 輪播 Hero Carousel */
+        #s03 .carousel-item {
+            height: 85vh;
+            min-height: 580px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        #s03 .carousel-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.75) 55%, rgba(15, 23, 42, 0.3) 100%);
+        }
+
+        #s03 .carousel-caption {
+            position: absolute;
+            top: 50%;
+            bottom: auto;
+            left: 8%;
+            right: auto;
+            transform: translateY(-50%);
+            width: min(680px, 85%);
+            padding: 2.5rem !important;
+            text-align: left;
+        }
+
+        #s03 .resume-label {
+            color: var(--exec-accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        #s03 .resume-name {
+            color: var(--exec-slate-light);
+            font-weight: 800;
+        }
+
+        #s03 .resume-list {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0;
+        }
+
+        #s03 .resume-list li {
+            position: relative;
+            padding: 8px 0 8px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--exec-text-sub);
+            font-size: 0.95rem;
+        }
+
+        #s03 .resume-list li::before {
+            content: "00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--exec-accent-gold);
+            font-size: 0.85rem;
+        }
+
+        #s03 .resume-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            margin: 4px 6px 0 0;
+            color: var(--exec-accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        #s03 .resume-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            color: #0f172a;
+            background: linear-gradient(135deg, #e2b714 0%, #d4af37 100%);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        #s03 .resume-btn:hover {
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+            color: #0f172a;
+        }
+
+        /* Section 04: 專業成就 Counter Panel */
+        #s04 .s04-visual {
+            min-height: 520px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 0.85rem;
+            border: 1px solid var(--exec-card-border);
+        }
+
+        #s04 .s04-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15,23,42,0.2), rgba(15,23,42,0.92));
+        }
+
+        #s04 .s04-counter-card {
+            padding: 24px 18px;
+            border-radius: 0.85rem;
+            text-align: center;
+            height: 100%;
+        }
+
+        #s04 .s04-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--exec-accent-gold);
+            letter-spacing: -1px;
+        }
+
+        /* Section 05: 領導優勢與價值信念 */
+        #s05 .s05-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--exec-accent-gold);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        /* Section 07: 精選作品與專案 */
+        #s07 .portfolio-item {
+            padding: 28px;
+            height: 100%;
+        }
+
+        #s07 .portfolio-icon {
+            color: var(--exec-accent-gold);
+        }
+
+        /* Section 08: 學經歷介紹 */
+        #s08 dl dt {
+            color: var(--exec-accent-gold);
+            font-weight: 700;
+            padding: 12px 0;
+        }
+
+        #s08 dl dd {
+            color: var(--exec-slate-light);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+        }
+
+        /* ===== Section 09: 聯絡 K.Lin (Executive Contact) ===== */
+        #s09 {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.95));
+        }
+
+        #s09::before, #s09::after {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            pointer-events: none;
+            animation: execFluidMove 15s ease-in-out infinite alternate;
+        }
+
+        #s09::before {
+            top: -150px;
+            left: -150px;
+            background: rgba(212, 175, 55, 0.15); /* 香檳金柔和微光 */
+        }
+
+        #s09::after {
+            bottom: -150px;
+            right: -150px;
+            background: rgba(56, 189, 248, 0.12); /* 冷海軍藍微光 */
+            animation-delay: -7.5s;
+        }
+
+        @keyframes execFluidMove {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(60px, 40px) scale(1.15); }
+            100% { transform: translate(-40px, -50px) scale(0.9); }
+        }
+
+        #s09 .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        #s09 .nordic-glass {
+            background: rgba(30, 41, 59, 0.88);
+            backdrop-filter: blur(16px);
+            border: var(--exec-glass-border);
+        }
+
+        /* Section 10: 未來願景與職涯發展 */
+        #s10 .bg-img {
+            min-height: 480px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        #s10 .future-card {
+            background: rgba(15, 23, 42, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--exec-card-border);
+            border-radius: 0.85rem;
+            padding: 2.2rem;
+        }
+
+        /* Footer 頁尾 */
+        #s11 {
+            background: #0b1120;
+            border-top: 1px solid rgba(154, 184, 224, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 圓角與細節控制 */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--exec-accent-gold), var(--exec-accent-champagne));
+            color: #0f172a;
+            font-weight: 700;
+            border: none;
+        }
+
+        .btn-gold:hover {
+            color: #0f172a;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 767.98px) {
+            #s03 .carousel-item { height: 750px; }
+            #s03 .carousel-caption {
+                left: 4%;
+                right: 4%;
+                width: 92%;
+                padding: 1.5rem !important;
+            }
+            #s08 .col-md-7 { width: 100%; }
+            #s10 .bg-img { padding: 1.5rem !important; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 全域微光背景 Canvas -->
+    <canvas id="fluid-bg"></canvas>
+
+    <!-- Section 01: 社群與聯絡資歷列 -->
+    <section id="s01">
+        <div class="container py-2">
+            <div class="row align-items-center">
+                <div class="col-6 small text-muted">
+                    <i class="fa-solid fa-globe me-2 text-warning"></i>Global Executive Portfolio | Interview Ready
+                </div>
+                <div class="col-6 text-end">
+                    <a href="#" class="text-light text-decoration-none me-3 opacity-75 hover-opacity-100"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                    <a href="#" class="text-light text-decoration-none me-3 opacity-75 hover-opacity-100"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <a href="#" class="text-light text-decoration-none opacity-75 hover-opacity-100"><i class="fa-solid fa-envelope fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: 導覽列 Navbar -->
+    <section id="s02" class="sticky-top shadow">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark py-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+                        <i class="fa-solid fa-gem fa-lg text-warning"></i>
+                        <span>K.LIN <small class="text-warning fs-6 ms-1 fw-normal">| Executive Edition</small></span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="#"><i class="fa-solid fa-house-laptop me-1 text-warning"></i>首頁 Summary</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#s08"><i class="fa-solid fa-briefcase me-1 text-muted"></i>經歷 Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#timeline-section"><i class="fa-solid fa-timeline me-1 text-muted"></i>專案里程碑 Timeline</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#s07"><i class="fa-solid fa-chart-diagram me-1 text-muted"></i>代表作品 Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#s09"><i class="fa-solid fa-paper-plane me-1 text-muted"></i>聯絡資訊 Contact</a></li>
+                        </ul>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-light rounded-pill px-3 py-1 small" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fa-solid fa-user-plus me-1"></i>求職者簡歷</button>
+                            <button class="btn btn-gold rounded-pill px-4 py-1 small" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fa-solid fa-lock me-1"></i>高階主管登入</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Modal 01: 求職簡歷說明 -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content nordic-glass text-light border-0">
+                <div class="modal-header bg-dark text-warning border-bottom border-secondary">
+                    <h5 class="modal-title fw-bold" id="registerModalLabel"><i class="fa-solid fa-user-tie me-2"></i>外商求職個人簡歷認證 (Candidate Verification)</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6 border-end border-secondary pe-md-4">
+                            <h4 class="fw-bold text-warning mb-3"><i class="fa-solid fa-award me-2"></i>專業誠信與合作規範</h4>
+                            <p class="small text-muted"><i class="fa-solid fa-check-double me-2 text-warning"></i>1. 專案保密協定：履歷內呈現之系統架構與關鍵數據均已進行去識別化處理。</p>
+                            <p class="small text-muted"><i class="fa-solid fa-check-double me-2 text-warning"></i>2. 全球化跨國溝通：具備流利雙語 (中/英) 跨國團隊協作與遠端開發管理經驗。</p>
+                            <p class="small text-muted"><i class="fa-solid fa-check-double me-2 text-warning"></i>3. 技術指標真實性：所有量化成果皆來自實質業務營運改善記錄。</p>
+                            <div class="form-check form-switch mt-3">
+                                <input type="checkbox" checked class="form-check-input" id="agreeTerms">
+                                <label for="agreeTerms" class="form-check-label text-light">我已確認過履歷資料與外商徵才條件相符</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ps-md-4">
+                            <div class="mb-3">
+                                <label for="username" class="form-label fw-bold"><i class="fa-solid fa-user me-1 text-warning"></i>應徵者姓名 / Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control bg-dark text-light border-secondary" id="username" placeholder="e.g. K. Lin">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-bold"><i class="fa-solid fa-key me-1 text-warning"></i>認證密碼 / Access Key <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control bg-dark text-light border-secondary" id="password" placeholder="輸入認證金鑰">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bold"><i class="fa-solid fa-envelope me-1 text-warning"></i>公務 Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control bg-dark text-light border-secondary" id="email" placeholder="k.lin@global-tech.com">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top border-secondary">
+                    <a href="#" class="me-auto text-warning text-decoration-none small" data-bs-toggle="modal" data-bs-target="#loginModal">已有面試權限？直接登入</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-gold px-4">下載完整 PDF 簡歷</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 02: 面試官登入 -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content nordic-glass text-light border-0">
+                <div class="modal-header bg-dark text-warning border-bottom border-secondary">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel"><i class="fa-solid fa-building me-2"></i>招募主管與 HR 通行進入</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label for="loginUsername" class="form-label fw-bold"><i class="fa-solid fa-user-gear me-1 text-warning"></i>外商企業名稱 / Enterprise</label>
+                        <input type="text" class="form-control bg-dark text-light border-secondary" id="loginUsername" placeholder="輸入公司名稱">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label fw-bold"><i class="fa-solid fa-lock me-1 text-warning"></i>驗證碼</label>
+                        <input type="password" class="form-control bg-dark text-light border-secondary" id="loginPassword" placeholder="輸入面試邀請碼">
+                    </div>
+                </div>
+                <div class="modal-footer border-top border-secondary d-flex">
+                    <a href="#" class="me-auto text-warning text-decoration-none small" data-bs-toggle="modal" data-bs-target="#registerModal">獲取面試驗證碼</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-gold px-4">進入面試作品簡報</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 03: 首頁輪播 Hero Carousel -->
+    <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="核心定位"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="專業優勢"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="國際視野"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Slide 01 -->
+                <div class="carousel-item active" style="background-image: url('Images/programmer-working06.avif.jpg');">
+                    <div class="carousel-caption nordic-glass wow animate__fadeInUp" data-wow-duration="1.2s">
+                        <div class="resume-label"><i class="fa-solid fa-crown me-2"></i>Senior Full-Stack Engineer & Product Lead</div>
+                        <h3 class="fw-bold display-6">卓越俐落 · 數位創新的推進者 <span class="resume-name">K.Lin</span></h3>
+                        <p class="text-muted">深耕全端架構與前端互動設計 5+ 年，具備敏捷開發、跨國團隊溝通與高擴充性系統二次開發實力。</p>
+                        <ul class="resume-list">
+                            <li><strong>Core Competency：</strong>Modern JavaScript (ES6+), RWD System Architecture, RESTful API</li>
+                            <li><strong>Leadership Style：</strong>以數據驅動決策，著重成果交付 (Deliverables-Oriented)</li>
+                        </ul>
+                        <a href="#s07" class="resume-btn"><i class="fa-solid fa-briefcase me-2"></i>瀏覽代表性專案 Portfolio</a>
+                    </div>
+                </div>
+                <!-- Slide 02 -->
+                <div class="carousel-item" style="background-image: url('Images/programmer-working05.avif.jpg');">
+                    <div class="carousel-caption nordic-glass">
+                        <div class="resume-label"><i class="fa-solid fa-feather-pointed me-2"></i>Executive Competence</div>
+                        <h3 class="fw-bold display-6">嚴謹與優雅併存的 <span class="resume-name">工程邏輯</span></h3>
+                        <p class="text-muted">結合優雅的美學眼界與強大的技術抗壓性，完美調和 UI/UX 視覺細節與後端邏輯架構。</p>
+                        <ul class="resume-list">
+                            <li><strong>Frontend Expertise：</strong>Bootstrap 5, HTML5/CSS3, jQuery, AJAX</li>
+                            <li><strong>Backend Integration：</strong>PHP, MySQL Architecture, LocalStorage Security</li>
+                        </ul>
+                        <a href="#s08" class="resume-btn"><i class="fa-solid fa-file-contract me-2"></i>查看完整經歷 Experience</a>
+                    </div>
+                </div>
+                <!-- Slide 03 -->
+                <div class="carousel-item" style="background-image: url('Images/programmer-working10.avif');">
+                    <div class="carousel-caption nordic-glass">
+                        <div class="resume-label"><i class="fa-solid fa-earth-americas me-2"></i>Global Perspective</div>
+                        <h3 class="fw-bold display-6">具備跨國合作思維的 <span class="resume-name">高階人才</span></h3>
+                        <p class="text-muted">習慣外商節奏，擁抱生成式 AI 工具提升團隊產出效率，為企業創造可量化的商業價值。</p>
+                        <div class="mb-3">
+                            <span class="resume-tag"><i class="fa-solid fa-check me-1"></i>Cross-Functional Communication</span>
+                            <span class="resume-tag"><i class="fa-solid fa-check me-1"></i>Agile Development</span>
+                            <span class="resume-tag"><i class="fa-solid fa-check me-1"></i>AI-Assisted Workflow</span>
+                        </div>
+                        <a href="#s09" class="resume-btn"><i class="fa-solid fa-calendar-check me-2"></i>安排面試洽談 Interview</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Section 04: 關鍵指標與成就 CounterUp -->
+    <section id="s04" class="py-5">
+        <div class="container-fluid px-4">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-5 s04-visual shadow-lg wow animate__animated animate__bounceIn" data-wow-duration="1.2s" data-wow-delay="0.2s" style="background-image: url('Images/programmer-working13.avif');">
+                    <div class="position-absolute bottom-0 p-4 z-2 ">
+                        <span class="badge bg-warning text-dark fw-bold mb-2"><i class="fa-solid fa-chart-line me-1"></i>PROVEN TRACK RECORD</span>
+                        <h2 class="fw-bold text-light">用數據與成果證明實力<br></h2>
+                    </div>
+                </div>
+                <div class="col-md-7 ps-md-5">
+                    <h6 class="text-warning fw-bold mb-2"><i class="fa-solid fa-trophy me-2"></i>EXECUTIVE METRICS</h6>
+                    <h2 class="display-6 fw-bold mb-3">量化實績與專案影響力</h2>
+                    <p class="text-muted mb-4">多年資深開發經驗，帶領團隊突破關鍵瓶頸，創造優異營運效益。</p>
+                    <div class="row g-3">
+                        <div class="col-6 col-lg-3">
+                            <div class="nordic-glass s04-counter-card">
+                                <i class="fa-solid fa-briefcase text-warning fs-3 mb-2"></i>
+                                <div class="s04-number counter01">05</div>
+                                <div class="small text-muted">Years of Experience</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="nordic-glass s04-counter-card">
+                                <i class="fa-solid fa-diagram-project text-warning fs-3 mb-2"></i>
+                                <div class="s04-number counter02">20</div>
+                                <div class="small text-muted">Major Projects Delivered</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="nordic-glass s04-counter-card">
+                                <i class="fa-solid fa-handshake text-warning fs-3 mb-2"></i>
+                                <div class="s04-number counter03">100</div>
+                                <div class="small text-muted">Stakeholders Satisfied</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="nordic-glass s04-counter-card">
+                                <i class="fa-solid fa-chart-pie text-warning fs-3 mb-2"></i>
+                                <div class="s04-number counter04">98</div>
+                                <div class="small text-muted">Client Approval Rate %</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Timeline 時間軸與 Roller 卷軸特效區塊（外商俐落金屬風） ===== -->
+    <section id="timeline-section" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-aurora"><i class="fa-solid fa-timeline me-3"></i>Career Milestones & Key Projects</h2>
+                <p class="text-muted">結合 Roller 雙向卷軸遮罩特效，滑鼠懸停探索專案技術細節</p>
+            </div>
+            
+            <div class="timeline-section">
+                <!-- 01 專案節點 (Roller Top) -->
+                <div class="row align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="imgbox roller-t shadow-lg" style="background-image: url('Images/programmer-working09.avif');">
+                            <div class="rollerbox-t">
+                                <i class="fa-solid fa-wand-magic-sparkles fa-2x text-warning"></i>
+                                <button class="btn btn-gold rounded-pill px-4 text-dark"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>View Project Architecture</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-3 mt-md-0">
+                        <div class="nordic-glass p-4">
+                            <div class="h4 fw-bold text-warning mb-2"><i class="fa-solid fa-globe me-2"></i>01. Global Interactive Landing Campaign</div>
+                            <p class="text-muted mb-2">主導跨國品牌星空主題視覺互動開發，整合 HTML5 Canvas 流體力學與動態載入。</p>
+                            <p class="small text-warning mb-1"><i class="fa-solid fa-microchip me-1"></i>Core Tech: HTML5 Canvas, CSS3 Keyframes, JS Engine</p>
+                            <p class="small text-muted mb-0"><i class="fa-solid fa-circle-check me-1 text-success"></i>Impact: 提升使用者停留在頁面的平均時間達 45%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02 專案節點 (Roller Bottom) -->
+                <div class="row flex-row-reverse align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="imgbox roller-b shadow-lg" style="background-image: url('Images/programmer-working06.avif.jpg');">
+                            <div class="rollerbox-b">
+                                <i class="fa-solid fa-layer-group fa-2x text-warning"></i>
+                                <button class="btn btn-outline-warning rounded-pill px-4"><i class="fa-solid fa-code me-2"></i>Inspect SPA Framework</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-3 mt-md-0">
+                        <div class="nordic-glass p-4">
+                            <div class="h4 fw-bold text-warning mb-2"><i class="fa-solid fa-server me-2"></i>02. Enterprise SPA Management Platform</div>
+                            <p class="text-muted mb-2">建構企業級單頁應用 (SPA)，串接 AJAX 非同步 API 與 JSON 數據動態解析。</p>
+                            <p class="small text-warning mb-1"><i class="fa-solid fa-shield-halved me-1"></i>Security: 具備數據權限驗證與無感 LocalStorage 自動備份</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 專案節點 (Roller Left) -->
+                <div class="row align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="imgbox roller-l shadow-lg" style="background-image: url('Images/programmer-working07.avif.jpg');">
+                            <div class="rollerbox-l">
+                                <i class="fa-solid fa-mobile-screen-button fa-2x text-warning"></i>
+                                <button class="btn btn-gold rounded-pill px-4 text-dark"><i class="fa-solid fa-laptop-code me-2"></i>Explore Responsive UI</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-3 mt-md-0">
+                        <div class="nordic-glass p-4">
+                            <div class="h4 fw-bold text-warning mb-2"><i class="fa-solid fa-cubes me-2"></i>03. Scalable RWD Design Component Library</div>
+                            <p class="text-muted mb-2">基於 Bootstrap 5 開發的高可覆用 UI 元件庫，大幅縮短跨平臺開發與部署時間。</p>
+                            <p class="small text-muted mb-0"><i class="fa-solid fa-mobile-button me-1 text-info"></i>Design Strategy: 極致行動端微互動與流暢觸控體驗</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 專案節點 (Roller Right) -->
+                <div class="row flex-row-reverse align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="imgbox roller-r shadow-lg" style="background-image: url('Images/programmer-working08.avif.jpg');">
+                            <div class="rollerbox-r">
+                                <i class="fa-solid fa-brain fa-2x text-warning"></i>
+                                <button class="btn btn-outline-warning rounded-pill px-4"><i class="fa-solid fa-robot me-2"></i>AI Automation Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-3 mt-md-0">
+                        <div class="nordic-glass p-4">
+                            <div class="h4 fw-bold text-warning mb-2"><i class="fa-solid fa-robot me-2"></i>04. AI-Driven Development & Testing Pipeline</div>
+                            <p class="text-muted mb-2">率先導入生成式 AI 輔助單元測試與程式碼重構，創造極高效率的敏捷開發流程。</p>
+                            <p class="small text-muted mb-0"><i class="fa-solid fa-bolt me-1 text-warning"></i>Efficiency: 縮短系統測試與交付週期達 35%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: 領導優勢與工作信念 -->
+    <section id="s05" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold"><i class="fa-solid fa-compass me-1"></i>EXECUTIVE LEADERSHIP</span>
+                <h2 class="display-5 fw-bold mt-3">核心優勢與工作信念</h2>
+                <p class="text-muted">俐落執行、邏輯嚴謹與全球化協作思維</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="nordic-glass p-4 h-100">
+                        <div class="s05-icon"><i class="fa-solid fa-chess-queen"></i></div>
+                        <h4 class="fw-bold text-light mb-3"><i class="fa-solid fa-circle-dot me-2 text-warning"></i>01. 商業與技術兼備</h4>
+                        <p class="text-muted">不僅著重程式品質，更能站在 C-Level 視角理解商業目標，提供兼具成本與效益的解法。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="nordic-glass p-4 h-100">
+                        <div class="s05-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                        <h4 class="fw-bold text-light mb-3"><i class="fa-solid fa-circle-dot me-2 text-warning"></i>02. 高效敏捷溝通</h4>
+                        <p class="text-muted">習慣外商跨部門溝通步調，善用清晰的架構圖與數據報告，確保團隊步調高度一致。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="nordic-glass p-4 h-100">
+                        <div class="s05-icon"><i class="fa-solid fa-gem"></i></div>
+                        <h4 class="fw-bold text-light mb-3"><i class="fa-solid fa-circle-dot me-2 text-warning"></i>03. 極致產品審美</h4>
+                        <p class="text-muted">對介面細節 (Typography, Spacing, Micro-interactions) 堅持頂級質感，給予使用者完美的產品體驗。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: 關於我 Executive Profile -->
+    <section id="s06" class="py-5 position-relative">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-md-5 d-none d-md-block">
+                    <div class="rounded-3 overflow-hidden shadow-lg border border-warning" style="height: 420px; background-image: url('Images/programmer-working05.avif.jpg'); background-size: cover; background-position: center;"></div>
+                </div>
+                <div class="col-md-7 ps-md-5">
+                    <h2 class="fw-bold mb-3"><i class="fa-solid fa-user-tie me-2 text-warning"></i>About K.Lin <span class="text-warning fs-4">/ EXECUTIVE PROFILE</span></h2>
+                    <p class="text-muted leading-relaxed">
+                        我是 K.Lin，一位具備國際視野與敏捷思考的資深全端工程師。精通 HTML5, CSS3, Modern JavaScript, jQuery 與 Bootstrap，能靈活整合前後端資料串接與高效能介面開發。
+                    </p>
+                    <p class="text-muted leading-relaxed">
+                        在節奏明快且高度競爭的外商環境中，我以自信、冷靜與縝密的邏輯面對技術挑戰。我相信好的代碼架構就如同一件剪裁得宜的高級西裝，既展現專業俐落，又蘊含精緻細節。
+                    </p>
+                    <a href="#s09" class="btn btn-gold rounded-pill px-4 py-2 mt-2"><i class="fa-solid fa-envelope me-2"></i>Contact for Executive Interview <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 07: 精選作品集 Portfolio -->
+    <section id="s07" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-aurora"><i class="fa-solid fa-briefcase me-2"></i>Featured Portfolio & Case Studies</h2>
+                <p class="text-muted">展現全端架構、資料處理與前沿網頁視覺整合的代表作品</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="nordic-glass portfolio-item d-flex gap-3 align-items-center">
+                        <i class="fa-solid fa-display fa-4x portfolio-icon"></i>
+                        <div>
+                            <h4 class="fw-bold text-light">Corporate Landing Experience</h4>
+                            <span class="badge bg-warning text-dark mb-2"><i class="fa-solid fa-tag me-1"></i>HTML5 / CSS3 / RWD Architecture</span>
+                            <p class="small text-muted mb-3">採用經典午夜藏青與香檳金高質感配色，打造頂級外商企業風範的響應式官網。</p>
+                            <a href="#" class="btn btn-outline-warning btn-sm rounded-pill"><i class="fa-solid fa-up-right-from-square me-1"></i>View Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="nordic-glass portfolio-item d-flex gap-3 align-items-center">
+                        <i class="fa-solid fa-chart-line fa-4x portfolio-icon"></i>
+                        <div>
+                            <h4 class="fw-bold text-light">Real-Time Data Analytics SPA</h4>
+                            <span class="badge bg-warning text-dark mb-2"><i class="fa-solid fa-tag me-1"></i>JavaScript / jQuery / REST AJAX</span>
+                            <p class="small text-muted mb-3">串接開放資料 API 與動態圖表，實現毫秒級非同步資料更新與條件篩選功能。</p>
+                            <a href="#" class="btn btn-outline-warning btn-sm rounded-pill"><i class="fa-solid fa-up-right-from-square me-1"></i>View Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="nordic-glass portfolio-item d-flex gap-3 align-items-center">
+                        <i class="fa-solid fa-mobile-retro fa-4x portfolio-icon"></i>
+                        <div>
+                            <h4 class="fw-bold text-light">Interactive Executive Resume SPA</h4>
+                            <span class="badge bg-warning text-dark mb-2"><i class="fa-solid fa-tag me-1"></i>Bootstrap 5 / Fluid Physics Canvas</span>
+                            <p class="small text-muted mb-3">整合微光流體背景與動態計數器，為外商求職者提供無與倫比的沉浸式簡歷展演。</p>
+                            <a href="#" class="btn btn-outline-warning btn-sm rounded-pill"><i class="fa-solid fa-up-right-from-square me-1"></i>View Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="nordic-glass portfolio-item d-flex gap-3 align-items-center">
+                        <i class="fa-solid fa-shield-cat fa-4x portfolio-icon"></i>
+                        <div>
+                            <h4 class="fw-bold text-light">Secure Full-Stack CMS Portal</h4>
+                            <span class="badge bg-warning text-dark mb-2"><i class="fa-solid fa-tag me-1"></i>PHP / MySQL / LocalStorage Security</span>
+                            <p class="small text-muted mb-3">設計嚴密的權限管理、CRUD 資料庫邏輯與優雅的 SweetAlert2 動態反饋。</p>
+                            <a href="#" class="btn btn-outline-warning btn-sm rounded-pill"><i class="fa-solid fa-up-right-from-square me-1"></i>View Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 08: 學經歷介紹 Experience -->
+    <section id="s08" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h2 class="fw-bold text-warning mb-4"><i class="fa-solid fa-graduation-cap me-2"></i>Education & Experience</h2>
+                    <dl class="row">
+                        <dt class="col-sm-3"><i class="fa-solid fa-id-badge me-1"></i>Professional Fit</dt>
+                        <dd class="col-sm-9">自信、冷靜、講求邏輯與數據實績的高階全端工程師。</dd>
+
+                        <dt class="col-sm-3"><i class="fa-solid fa-graduation-cap me-1"></i>Education</dt>
+                        <dd class="col-sm-9">
+                            <p class="mb-1">1. B.S. in Computer Science & Information Engineering</p>
+                            <p class="mb-0">2. Full-Stack Software Engineering Specialization (Honors)</p>
+                        </dd>
+
+                        <dt class="col-sm-3"><i class="fa-solid fa-building-user me-1"></i>Career History</dt>
+                        <dd class="col-sm-9">
+                            <p class="fw-bold mb-1 text-warning">Senior Full-Stack Engineer @ Tech Corp (2022 - Present)</p>
+                            <p class="small text-muted">主導高流量前端系統架構、元件庫標準化與跨國 team lead 協作。</p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-5 d-none d-md-block">
+                    <div class="rounded-3 overflow-hidden shadow-lg border border-warning" style="height: 380px; background-image: url('images/programmer-working01.avif'); background-size: cover;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Section 09: 聯絡 K.Lin (Executive Contact) ===== -->
+    <section id="s09" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-aurora"><i class="fa-solid fa-paper-plane me-2"></i>Schedule an Executive Interview</h2>
+                <p class="text-muted">歡迎招募主管與 HR 發送面試邀請，討論潛在合作機會</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <form id="contactForm" class="nordic-glass p-4">
+                        <div class="mb-3 form-floating">
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="contactName" placeholder="Name">
+                            <label for="contactName" class="text-muted"><i class="fa-solid fa-user me-1"></i>您的姓名 / Full Name</label>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input type="email" class="form-control bg-dark text-light border-secondary" id="contactEmail" placeholder="Email">
+                            <label for="contactEmail" class="text-muted"><i class="fa-solid fa-envelope me-1"></i>公務信箱 / Corporate Email</label>
+                        </div>
+                        <div class="mb-3">
+                            <select id="contactSubject" class="form-select bg-dark text-light border-secondary py-3">
+                                <option value="" disabled selected>--- 請選擇洽談主題 Subject ---</option>
+                                <option value="外商面試邀約">外商正職面試邀約 (Job Interview)</option>
+                                <option value="技術顧問合作">技術顧問與架構諮詢 (Consulting)</option>
+                                <option value="專案合作">高階專案開發合作 (Project Collaboration)</option>
+                                <option value="其它">其它 (Other)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea id="contactMessage" class="form-control bg-dark text-light border-secondary" rows="5" placeholder="請輸入面試職缺說明或合作細節....."></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="reset" class="btn btn-outline-secondary me-2"><i class="fa-solid fa-rotate-left me-1"></i>重置</button>
+                            <button type="submit" class="btn btn-gold px-4"><i class="fa-solid fa-paper-plane me-1"></i>發送面試訊息 Send Invitation</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="nordic-glass p-2 h-100 overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.0342008482976!2d120.61012299999999!3d24.170533300000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e048d342aa9%3A0x2b6f18a6783fa3b!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5Lit5b2w5oqV5YiG572y77yI6Ie65Lit6IG36KiT5bGA77yJ!5e0!3m2!1szh-TW!2stw!4v1793675502591!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0; min-height: 380px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: 未來展望 Future Roadmap -->
+    <section id="s10" class="py-5">
+        <div class="container-fluid px-0">
+            <div class="row g-0">
+                <div class="col-md-6 bg-img p-4 p-md-5" style="background-image: url('Images/programmer-working10.avif');">
+                    <div class="future-card h-100">
+                        <h3 class="fw-bold text-light"><i class="fa-solid fa-compass me-2 text-warning"></i>未來願景 <small class="text-warning fs-6">Future Vision</small></h3>
+                        <h5 class="text-warning fw-bold my-3">開創外商高階技術領導力</h5>
+                        <p class="small text-black-50">優秀的技術領袖不只關注技術本身，更能引導團隊實現商業轉型與國際化佈局。</p>
+                        <ul class="small text-black-50 ps-3 mb-4"> <!-- Section 10: text-black-50 原 muted, ，css background 透明度原85% -->
+                            <li>深化 Modern JS Framework & Micro-Frontends 架構</li>
+                            <li>導入國際化 Accessibility (a11y) 與極致 UI/UX 規範</li>
+                            <li>推動 CI/CD 自動化與高品質代碼審查文化</li>
+                        </ul>
+                        <a href="#s07" class="btn btn-outline-warning btn-sm rounded-pill w-100">檢視精選專案</a>
+                        <a href="http://127.0.0.1:5500/index.html" class="btn btn-outline-warning btn-sm rounded-pill w-100">更多精選專案</a>
+                    </div>
+                </div>
+                <div class="col-md-6 bg-img p-4 p-md-5" style="background-image: url('Images/programmer-working16.avif');">
+                    <div class="future-card h-100">
+                        <h3 class="fw-bold text-light"><i class="fa-solid fa-sparkles me-2 text-warning"></i>創新發展 <small class="text-warning fs-6">Innovation Roadmap</small></h3>
+                        <h5 class="text-warning fw-bold my-3">擁抱 AI 協作，躍升研發效能</h5>
+                        <p class="small text-muted">結合生成式 AI 工具輔助系統架構設計與自動化測試，極大化產出能量。</p>
+                        <ul class="small text-muted ps-3 mb-4">
+                            <li>AI 驅動代碼重構與弱點掃描</li>
+                            <li>持續拓寬 Full-Stack 與 Cloud Architecture 技術棧</li>
+                        </ul>
+                        <a href="#s09" class="btn btn-outline-warning btn-sm rounded-pill w-100">聯繫 K.Lin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 11: 頁尾 Footer -->
+    <footer id="s11" class="py-4 text-center text-muted">
+        <div class="container">
+            <p class="mb-0 fw-bold">&copy; 2026 K.Lin. All Rights Reserved. (Global Executive Portfolio)</p>
+        </div>
+    </footer>
+
+    <!-- 腳本引入 -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // 1. 微光星空 Canvas 動態背景
+        (function initFluidCanvas() {
+            const canvas = document.getElementById('fluid-bg');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.radius = Math.random() * 120 + 30;
+                    this.vx = (Math.random() - 0.5) * 0.4;
+                    this.vy = (Math.random() - 0.5) * 0.4;
+                    // 香檳金、深海藍與莫蘭迪粉柔光粒子
+                    const colors = [
+                        'rgba(212, 175, 55, ',   // 香檳金
+                        'rgba(56, 189, 248, ',   // 冷海軍藍
+                        'rgba(224, 169, 109, ',  // 莫蘭迪古銅粉
+                        'rgba(148, 163, 184, '   // 質感岩石灰
+                    ];
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.alpha = Math.random() * 0.2 + 0.08;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+                    gradient.addColorStop(0, this.color + this.alpha + ')');
+                    gradient.addColorStop(1, this.color + '0)');
+                    ctx.fillStyle = gradient;
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < -100) this.x = width + 100;
+                    if (this.x > width + 100) this.x = -100;
+                    if (this.y < -100) this.y = height + 100;
+                    if (this.y > height + 100) this.y = -100;
+                    this.draw();
+                }
+            }
+
+            for (let i = 0; i < 14; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => p.update());
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // 2. CounterUp 數字累加動畫
+        $(document).ready(function () {
+            if (window.counterUp) {
+                const counterUp = window.counterUp.default;
+                const callback = entries => {
+                    entries.forEach(entry => {
+                        const el = entry.target;
+                        if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                            counterUp(el, { duration: 2500, delay: 16 });
+                            el.classList.add('is-visible');
+                        }
+                    });
+                };
+                const IO = new IntersectionObserver(callback, { threshold: 0.5 });
+                document.querySelectorAll('.s04-number').forEach(el => IO.observe(el));
+            }
+
+            // 3. WOW.js 滾動動畫初始化
+            if (typeof WOW !== 'undefined') {
+                new WOW({
+                boxClass: 'wow',
+                animateClass: 'animate__animated',
+                offset: 100,
+                mobile: true,
+                live: true
+            }).init();
+            }
+
+            // 4. 聯絡表單送出模擬 (SweetAlert2)
+            $('#contactForm').on('submit', function (e) {
+                e.preventDefault();
+                const name = $('#contactName').val();
+                if (!name) {
+                    Swal.fire({ icon: 'error', title: 'Please enter your name', text: '請輸入您的姓名以利安排面試。', confirmButtonColor: '#e2b714' });
+                    return;
+                }
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Interview Request Sent!',
+                    text: `感謝您的面試邀請，K.Lin 將會儘速以專人信件回覆您。`,
+                    confirmButtonColor: '#e2b714'
+                });
+                this.reset();
+            });
+        });
+    </script>
+</body>
+
+</html>
+<!-- 20261027-SPA-KLin-Female-Executive-Edition.html -->
