@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>K. Lin's｜Joyful Web Development Portfolio</title>
+<link href="css/Myallcss.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<style>
+:root {
+    --m-blue:#246BFD; --m-green:#12B886; --m-beige:#FFD166;
+    --m-red:#FF6B6B; --m-dark:#172033; --m-bg:#F7F9FC; --m-white:#fff;
+    --m-purple:#845EF7; --m-cyan:#22B8CF; --m-orange:#FF922B;
+}
+html { scroll-behavior:smooth; }
+body {
+    margin:0; background:var(--m-bg); color:var(--m-dark);
+    font-family:"Segoe UI","Microsoft JhengHei",sans-serif; line-height:1.7;
+}
+a { text-decoration:none; }
+.navbar {
+    background:rgba(255,255,255,.94); box-shadow:0 2px 18px rgba(70,84,90,.08);
+    backdrop-filter:blur(10px);
+}
+.navbar-brand { color:var(--m-dark)!important; font-weight:700; letter-spacing:1px; }
+.nav-link { color:var(--m-dark)!important; margin-left:12px; }
+.nav-link:hover,.nav-link.active { color:var(--m-red)!important; }
+
+.hero {
+    min-height:410px; display:flex; align-items:center; position:relative; overflow:hidden;
+    background:linear-gradient(135deg,#e9e5de,#dce2df);
+}
+.hero:before,.hero:after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+.hero:before { width:520px;height:520px;right:-180px;top:-240px;background:rgba(116,134,141,.13); }
+.hero:after { width:330px;height:330px;left:-150px;bottom:-190px;background:rgba(169,121,113,.11); }
+.hero-content { position:relative; z-index:2; }
+.eyebrow {
+    display:inline-block; padding:6px 15px; border-radius:30px;
+    background:rgba(255,255,255,.62); color:var(--m-red);
+    font-size:.8rem; letter-spacing:2px; font-weight:700;
+}
+.hero h1 {
+    margin-top:20px; font-size:clamp(2.5rem,6vw,4.6rem);
+    line-height:1.1; font-weight:750; letter-spacing:1px;
+}
+.hero h1 span { color:var(--m-red); }
+.hero p { color:#707b7e; font-size:1.1rem; }
+.roller-box {
+    margin-top:32px; overflow:hidden; padding:14px 0;
+    border-top:1px solid rgba(70,84,90,.14); border-bottom:1px solid rgba(70,84,90,.14);
+}
+.roller { display:flex; width:max-content; animation:roller 22s linear infinite; }
+.roller span {
+    margin-right:44px; white-space:nowrap; color:var(--m-blue);
+    font-weight:700; letter-spacing:1.5px;
+}
+@keyframes roller { from {transform:translateX(0)} to {transform:translateX(-50%)} }
+
+section { padding:52px 0; }
+.section-title { margin-bottom:28px; }
+.section-title small { color:var(--m-red); font-weight:700; letter-spacing:3px; }
+.section-title h2 { margin:7px 0; font-weight:750; }
+.section-title p { color:#7b8587; }
+
+.control-panel {
+    background:var(--m-white); border-radius:18px; padding:18px;
+    box-shadow:0 10px 30px rgba(70,84,90,.08); margin-bottom:22px;
+}
+.filter-btn {
+    border:1px solid #d9d9d3; background:#fff; color:var(--m-dark);
+    border-radius:30px; padding:8px 16px; margin:4px; transition:.25s;
+}
+.filter-btn:hover,.filter-btn.active { background:var(--m-dark); color:#fff; border-color:var(--m-dark); }
+.table-wrap {
+    background:#fff; border-radius:18px; padding:10px;
+    box-shadow:0 10px 30px rgba(70,84,90,.08); overflow:auto;
+}
+.project-table { min-width:780px; margin:0; }
+.project-table thead th { background:var(--m-dark); color:#fff; border:0; padding:16px; }
+.project-table tbody td { padding:15px; border-color:#ece9e3; vertical-align:middle; }
+.project-table tbody tr { transition:.25s; }
+.project-table tbody tr:hover { background:#f1f3f0; }
+.table-no { color:var(--m-red); font-weight:750; }
+.table-view { color:var(--m-blue); font-weight:700; }
+.table-view:hover { color:var(--m-red); }
+
+.journey-section { background:#eeece7; }
+.journey-card {
+    height:100%; background:#fff; border-radius:18px; overflow:hidden;
+    box-shadow:0 10px 30px rgba(70,84,90,.08); transition:.3s; position:relative;
+}
+.journey-card:hover { transform:translateY(-7px); box-shadow:0 18px 40px rgba(70,84,90,.15); }
+.stage-no {
+    position:absolute; right:20px; top:14px; color:rgba(70,84,90,.12);
+    font-size:3.5rem; font-weight:800;
+}
+.journey-card-body { padding:28px; position:relative; }
+.stage-tag { color:var(--m-red); font-size:.75rem; font-weight:750; letter-spacing:2px; }
+.journey-card h3 { margin-top:6px; font-weight:750; }
+.journey-card p { color:#7b8587; min-height:55px; }
+.project-list { border-top:1px solid #eee; }
+.project-link {
+    display:flex; justify-content:space-between; gap:12px;
+    padding:12px 0; color:var(--m-dark); border-bottom:1px solid #eee; font-size:.92rem;
+}
+.project-link:hover { color:var(--m-red); }
+
+
+ .path-section { background:#eeece7; }
+.path-section .section-title { margin-bottom:24px; }
+.path-intro { display:flex; align-items:center; justify-content:center; gap:14px; margin:0 auto 28px; max-width:760px; color:#7b8587; font-size:.7rem; letter-spacing:1.8px; font-weight:700; }
+.path-intro > div:not(.path-line) { display:flex; align-items:center; gap:7px; white-space:nowrap; }
+.path-total { font-size:1.5rem; color:var(--m-dark); letter-spacing:0; }
+.path-line { width:52px; height:1px; background:#c9c2b7; }
+.learning-path { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1080px; margin:0 auto; }
+.path-stage { min-width:0; }
+.path-card { height:100%; background:#fff; border-radius:16px; padding:22px 22px 18px; box-shadow:0 8px 24px rgba(70,84,90,.07); transition:.3s; border:1px solid rgba(70,84,90,.05); position:relative; overflow:hidden; }
+.path-card:before { content:""; position:absolute; left:0; top:0; width:5px; height:100%; background:var(--m-blue); }
+.path-stage:nth-child(2) .path-card:before { background:var(--m-green); }
+.path-stage:nth-child(3) .path-card:before { background:var(--m-beige); }
+.path-stage:nth-child(4) .path-card:before { background:#9a9f91; }
+.path-stage:nth-child(5) .path-card:before { background:var(--m-red); }
+.path-stage:nth-child(6) .path-card:before { background:var(--m-dark); }
+.path-card:hover { transform:translateY(-5px); box-shadow:0 15px 32px rgba(70,84,90,.12); }
+.path-card-final { border-color:rgba(169,121,113,.25); }
+.path-card-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-left:4px; }
+.stage-tag { color:var(--m-red); font-size:.68rem; font-weight:750; letter-spacing:1.8px; }
+.project-count { color:#9a9b96; font-size:.63rem; letter-spacing:1px; font-weight:750; }
+.path-card h3 { margin:7px 0 5px 4px; font-weight:750; font-size:1.18rem; }
+.path-card p { margin:0 4px 12px; color:#7b8587; font-size:.82rem; line-height:1.5; min-height:49px; }
+.path-projects { margin-left:4px; border-top:1px solid #eeeae4; }
+.path-projects a { display:flex; align-items:center; gap:8px; padding:7px 0; color:var(--m-dark); border-bottom:1px solid #f0ede8; font-size:.78rem; transition:.2s; }
+.path-projects a:last-child { border-bottom:0; padding-bottom:0; }
+.path-projects a:hover { color:var(--m-red); padding-left:3px; }
+.path-projects a span { min-width:21px; color:var(--m-red); font-size:.64rem; font-weight:800; }
+.path-projects a i { margin-left:auto; font-size:.7rem; color:#9ca5a6; }
+.path-note { max-width:1080px; margin:18px auto 0; padding:11px 16px; background:#e3e0d9; border-radius:10px; color:#727d7f; font-size:.78rem; text-align:center; }
+.path-note i { color:var(--m-red); margin-right:6px; }
+
+.timeline { position:relative; max-width:900px; margin:auto; }
+.timeline:before {
+    content:""; position:absolute; left:50%; top:0; bottom:0; width:3px;
+    transform:translateX(-50%); background:var(--m-beige);
+}
+.timeline-item { position:relative; width:50%; padding:10px 42px; margin-bottom:30px; }
+.timeline-item:nth-child(odd) { left:0; text-align:right; }
+.timeline-item:nth-child(even) { left:50%; }
+.timeline-dot {
+    position:absolute; top:27px; width:17px; height:17px; border-radius:50%;
+    background:var(--m-red); border:4px solid var(--m-bg);
+    box-shadow:0 0 0 2px var(--m-red); cursor:pointer; z-index:2;
+}
+.timeline-item:nth-child(odd) .timeline-dot { right:-8px; }
+.timeline-item:nth-child(even) .timeline-dot { left:-8px; }
+.timeline-card {
+    background:#fff; padding:22px; border-radius:16px;
+    box-shadow:0 10px 28px rgba(70,84,90,.08); transition:.3s; cursor:pointer;
+}
+.timeline-card:hover,.timeline-item.active .timeline-card {
+    transform:translateY(-4px); box-shadow:0 15px 35px rgba(70,84,90,.15);
+}
+.timeline-year { color:var(--m-red); font-weight:750; letter-spacing:1px; }
+.timeline-card h4 { margin:4px 0; font-weight:750; }
+.timeline-card p { margin:0; color:#7b8587; }
+
+.skill-section { background:#e5e7e3; overflow:hidden; }
+.skill-roller { display:flex; width:max-content; animation:skill 25s linear infinite; }
+.skill-item {
+    margin:0 9px; padding:12px 22px; border-radius:40px; background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.05); font-weight:700;
+}
+@keyframes skill { from {transform:translateX(0)} to {transform:translateX(-50%)} }
+
+.featured-card {
+    height:100%; background:#fff; border-radius:18px; overflow:hidden;
+    box-shadow:0 10px 30px rgba(70,84,90,.08); transition:.3s;
+}
+.featured-card:hover { transform:translateY(-7px); }
+.featured-top { height:8px; background:var(--m-blue); }
+.featured-card:nth-child(2) .featured-top { background:var(--m-green); }
+.featured-card:nth-child(3) .featured-top { background:var(--m-red); }
+.featured-card:nth-child(4) .featured-top { background:var(--m-beige); }
+.featured-body { padding:28px; }
+.featured-icon {
+    width:48px;height:48px;border-radius:14px;background:#edf0ed;
+    display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:18px;
+}
+.featured-body h4 { font-weight:750; }
+.featured-body p { color:#7b8587; }
+.view-link { color:var(--m-red); font-weight:750; }
+footer { padding:38px 0; background:var(--m-dark); color:rgba(255,255,255,.72); text-align:center; }
+
+.fade-up { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+.fade-up.show { opacity:1; transform:none; }
+
+@media(max-width:768px) {
+    .hero { min-height:560px; }
+    section { padding:52px 0; }
+    .path-intro { gap:8px; margin-bottom:20px; }
+    .path-line { width:22px; }
+    .learning-path { grid-template-columns:repeat(2,1fr); gap:14px; }
+    .path-card { padding:19px 17px 15px; }
+    .path-card p { min-height:auto; }
+    .timeline:before { left:15px; }
+    .timeline-item,.timeline-item:nth-child(even),.timeline-item:nth-child(odd) {
+        width:100%; left:0; text-align:left; padding-left:50px; padding-right:5px;
+    }
+    .timeline-item:nth-child(odd) .timeline-dot,.timeline-item:nth-child(even) .timeline-dot {
+        left:7px; right:auto;
+    }
+}
+
+/* ===== K. Lin's Playful Code Lab theme ===== */
+body{background:var(--m-bg);color:var(--m-dark);}
+.navbar{background:rgba(255,255,255,.88);box-shadow:0 3px 20px rgba(36,107,253,.10);}
+.navbar-brand{color:var(--m-dark)!important}.navbar-brand i{color:var(--m-blue);animation:pulseIcon 2.4s ease-in-out infinite}
+.nav-link:hover,.nav-link.active{color:var(--m-blue)!important}
+.hero{min-height:410px;background:linear-gradient(125deg,#EAF2FF 0%,#F8F0FF 46%,#FFF7E8 100%);}
+.hero:before{width:430px;height:430px;right:-130px;top:-220px;background:radial-gradient(circle,#22B8CF55 0 38%,transparent 40%);animation:floatBlob 7s ease-in-out infinite}
+.hero:after{width:380px;height:380px;left:-170px;bottom:-220px;background:radial-gradient(circle,#FF6B6B35 0 38%,transparent 40%);animation:floatBlob 9s ease-in-out infinite reverse}
+.hero h1 span{color:var(--m-blue);text-shadow:4px 4px 0 #FFD16655}
+.eyebrow{background:#fff;color:var(--m-purple);box-shadow:0 8px 20px rgba(132,94,247,.12)}
+.hero p{color:#526078}
+.roller-box{border-color:#CFE0FF}.roller span{color:var(--m-blue)}
+section{padding:50px 0}.section-title small{color:var(--m-blue)}.section-title p{color:#68758A}
+.path-section{background:linear-gradient(180deg,#F7F9FC 0%,#EEF6FF 100%)}
+.path-card{border:1px solid #E3EAF5;box-shadow:0 10px 28px rgba(36,107,253,.08);}
+.path-card:before{width:7px;background:var(--m-blue)}
+.path-stage:nth-child(2) .path-card:before{background:var(--m-cyan)}
+.path-stage:nth-child(3) .path-card:before{background:var(--m-green)}
+.path-stage:nth-child(4) .path-card:before{background:var(--m-purple)}
+.path-stage:nth-child(5) .path-card:before{background:var(--m-orange)}
+.path-stage:nth-child(6) .path-card:before{background:var(--m-red)}
+.path-card:hover{transform:translateY(-8px) rotate(-.35deg);box-shadow:0 18px 38px rgba(36,107,253,.16)}
+.stage-tag{color:var(--m-blue)}.project-count{color:#7D8AA3}.path-total{color:var(--m-blue)}
+.stage-icon{font-size:1rem;margin-right:5px;vertical-align:-1px}
+.path-projects a:hover{color:var(--m-blue);background:#F4F8FF;border-radius:8px;padding-left:8px;padding-right:6px}
+.path-projects a span{color:var(--m-red)}
+.path-note{background:#E8F1FF;color:#526078}.path-note i{color:var(--m-blue)}
+.timeline:before{background:linear-gradient(var(--m-blue),var(--m-purple),var(--m-red))}
+.timeline-dot{background:var(--m-blue);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--m-blue);animation:dotPulse 2.2s ease-in-out infinite}
+.timeline-year{color:var(--m-blue)}
+.skill-section{background:#0077B6}.skill-item{background:#fff;color:var(--m-dark);box-shadow:0 7px 20px rgba(0,0,0,.12)}
+.skill-item:nth-child(3n){color:var(--m-purple)}.skill-item:nth-child(3n+1){color:var(--m-blue)}.skill-item:nth-child(3n+2){color:var(--m-green)}
+.featured-card{box-shadow:0 10px 28px rgba(36,107,253,.09)}.featured-card:hover{transform:translateY(-9px) rotate(.3deg);box-shadow:0 20px 42px rgba(36,107,253,.16)}
+.featured-top{background:linear-gradient(90deg,var(--m-blue),var(--m-purple),var(--m-cyan));height:7px}
+.featured-icon{color:var(--m-blue);animation:iconFloat 3s ease-in-out infinite}
+.view-link{color:var(--m-blue)!important}
+footer{background:#0077B6!important;color:#fff!important}
+.fade-up{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
+.fade-up.show{opacity:1;transform:none}
+@keyframes floatBlob{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(18px,14px,0) rotate(8deg)}}
+@keyframes pulseIcon{0%,100%{transform:scale(1)}50%{transform:scale(1.12) rotate(-4deg)}}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--m-blue)}50%{box-shadow:0 0 0 5px #fff,0 0 0 7px #22B8CF88}}
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(3deg)}}
+@media(max-width:768px){.hero{min-height:390px}.learning-path{grid-template-columns:1fr}.path-card:hover{transform:translateY(-5px)}.hero h1{font-size:2.7rem}}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+<div class="container">
+<a class="navbar-brand" href="#"><i class="bi bi-code-slash"></i> K. Lin's Web Development</a>
+<button class="navbar-toggler" data-bs-target="#mainNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="mainNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#learning-path">學習路徑</a></li>
+<li class="nav-item"><a class="nav-link" href="#timeline">Learning Journey</a></li>
+<li class="nav-item"><a class="nav-link" href="#featured">代表作品</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<header class="hero">
+<div class="container hero-content">
+<span class="eyebrow">✨ JOYFUL WEB DEVELOPMENT LAB</span>
+<h1>K. Lin's Web<br/><span>Development</span> Journey</h1>
+<p>不只把作品做完，也把每一次練習變成下一個作品的超能力。</p>
+<div class="roller-box">
+<div class="roller">
+<span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap 5</span>
+<span>jQuery</span><span>AJAX</span><span>Timeline</span><span>Roller</span><span>AI × Coding</span>
+<span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap 5</span>
+<span>jQuery</span><span>AJAX</span><span>Timeline</span><span>Roller</span><span>AI × Coding</span>
+</div>
+</div>
+</div>
+</header>
+<section id="s01" class="path-section" id="learning-path">
+<div class="container">
+<div class="section-title text-center fade-up">
+<small>🚀 LEARNING PATH</small>
+<h2 style="letter-spacing:3px;color:var(--m-red);font-weight:750;">六個能力階段｜20 個作品</h2>
+<p>用「能力模組」整理作品，而不是逐項列出作業；每一區代表一個前端能力的累積。</p>
+</div>
+<div class="path-intro fade-up">
+<div><span class="path-total">19</span><span>PROJECTS</span></div>
+<div class="path-line"></div>
+<div><span class="path-total">06</span><span>STAGES</span></div>
+<div class="path-line"></div>
+<div><span class="path-total">01</span><span>PORTFOLIO</span></div>
+</div>
+<div class="learning-path">
+<article class="path-stage fade-up" data-stage="1">
+<div class="path-card">
+<div class="path-card-head"><span class="stage-tag"><i class="bi bi-braces stage-icon"></i> FOUNDATION</span><span class="project-count">02 PROJECTS</span></div>
+<h3>HTML / CSS</h3>
+<p>從網頁結構、CSS 排版到視覺風格，建立前端基礎。</p>
+<div class="path-projects">
+<a href="20260923-ex01-ai02.html" target="_blank"><span>01</span> 練習01. 使用CSS語法配置版面_ai02 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20260923-ex01-ai03_nordic.html" target="_blank"><span>02</span> 練習01. 使用CSS語法配置版面_ai03_nordic <i class="bi bi-arrow-up-right"></i></a>
+</div>
+</div>
+</article>
+<article class="path-stage fade-up" data-stage="2">
+<div class="path-card">
+<div class="path-card-head"><span class="stage-tag"><i class="bi bi-lightning-charge-fill stage-icon"></i> INTERACTION</span><span class="project-count">02 PROJECTS</span></div>
+<h3>JavaScript</h3>
+<p>從語法練習進入互動與資料處理，開始讓頁面具備行為。</p>
+<div class="path-projects">
+
+<a href="20290929-javascript-travelfood.html" target="_blank"><span>03</span> JS語法練習 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20290929-javascript-travelfood-ai_aqua.html" target="_blank"><span>04</span> JS語法練習-ai <i class="bi bi-arrow-up-right"></i></a>
+</div>
+</div>
+</article>
+<article class="path-stage fade-up" data-stage="3">
+<div class="path-card">
+<div class="path-card-head"><span class="stage-tag"><i class="bi bi-grid-3x3-gap-fill stage-icon"></i> LAYOUT SYSTEM</span><span class="project-count">04 PROJECTS</span></div>
+<h3>Bootstrap &amp; Responsive UI</h3>
+<p>從 Bootstrap 元件、Table 到版型切分，建立可延伸的 UI 結構。</p>
+<div class="path-projects">
+<a href="20261001-bs-1.html" target="_blank"><span>05</span> BS語法練習 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261001-BS-table.html" target="_blank"><span>06</span> Bootstrap - Table (表格)_飲料產品列表 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261001-ch6-rev by ai.html" target="_blank"><span>07</span> Bootstrap 切版 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261001-BS-table.html" target="_blank"><span>08</span> Bootstrap - Table (表格)_opendata餐廳 <i class="bi bi-arrow-up-right"></i></a>
+</div>
+</div>
+</article>
+<article class="path-stage fade-up" data-stage="4">
+<div class="path-card">
+<div class="path-card-head"><span class="stage-tag"><i class="bi bi-magic stage-icon"></i> UI / MOTION</span><span class="project-count">04 PROJECTS</span></div>
+<h3>Layout &amp; Interaction</h3>
+<p>開始處理 RWD、Flex、Timeline 與 Roller，讓版面從靜態走向互動。</p>
+<div class="path-projects">
+<a href="20261006-ch6 切版.html" target="_blank"><span>09</span> ch.6 Bootstrap 切版 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261008-ch7-flex-richie.html" target="_blank"><span>10</span> ch7. Flex <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261013-ch7-timeline.html" target="_blank"><span>11</span> ch7-timeline練習 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261013-ch7-roller.html" target="_blank"><span>12</span> ch7-roller卷軸 <i class="bi bi-arrow-up-right"></i></a>
+</div>
+</div>
+</article>
+<article class="path-stage fade-up" data-stage="5">
+<div class="path-card">
+<div class="path-card-head"><span class="stage-tag"><i class="bi bi-cpu-fill stage-icon"></i> APPLICATION</span><span class="project-count">04 PROJECTS</span></div>
+<h3>Forms, Resume &amp; AI</h3>
+<p>把技術放進實際情境，結合表單、履歷與 AI 輔助開發。</p>
+<div class="path-projects">
+<a href="20261013-ch7-resume_richie.html" target="_blank"><span>13</span> ch7-resume練習-我還沒做老師的檔案 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261013-ch7-resume_K_EN.html" target="_blank"><span>14</span> ch7-resume練習-K.Lin的檔案 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261015-CH8-FORMS.html" target="_blank"><span>15</span> ch8. Forms(表單) <i class="bi bi-arrow-up-right"></i></a>
+<!-- <a href="20261015-CH8-FORMS.html" target="_blank"><span>15</span> ch8. Forms(表單) <i class="bi bi-arrow-up-right"></i></a> -->
+<a href="20261015-ch8-forms-ex01-ai01.html" target="_blank"><span>16</span> ch8-forms-ex-1-ai01 AI 輔助全端程式設計 <i class="bi bi-arrow-up-right"></i></a>
+</div>
+</div>
+</article>
+<article class="path-stage fade-up" data-stage="6">
+<div class="path-card path-card-final">
+<div class="path-card-head"><span class="stage-tag"><i class="bi bi-stars stage-icon"></i> PORTFOLIO</span><span class="project-count">03 PROJECTS</span></div>
+<h3>Portfolio &amp; Motion</h3>
+<p>將前面累積的技術整合成個人作品，完成從練習到展示的最後一步。</p>
+<div class="path-projects">
+<a href="20261027-SPA.html" target="_blank"><span>17</span> SPA-個人履歷排版練習 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261027-SPA-RICHIE-1103-animated.html" target="_blank"><span>18</span> SPA-個人履歷排版練習_Richie-1103-animated_ai <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261103-wowjs.html" target="_blank"><span>19</span> 動畫練習 <i class="bi bi-arrow-up-right"></i></a>
+<a href="20261110-SPA-KL-HW_AI.html" target="_blank"><span>20</span> SPA-個人履歷排版動畫_261110作業_ai輔助 <i class="bi bi-arrow-up-right"></i></a>
+</div>
+</div>
+</article>
+</div>
+<div class="path-note fade-up">
+<i class="bi bi-lightbulb"></i>
+<span><strong>Learning by Building</strong>　不是單純累積作業，而是讓每一階段的練習成為下一階段的能力基礎。</span>
+</div>
+</div>
+</section>
+<section id="s02" id="timeline">
+<div class="container">
+<div class="section-title text-center fade-up">
+<small>LEARNING JOURNEY</small>
+<h2>Timeline｜學習歷程</h2>
+<p>以時間順序呈現學習節奏，和上方的「能力分類」形成不同閱讀方式。</p>
+</div>
+<div class="timeline">
+<div class="timeline-item fade-up" data-stage="1">
+<div class="timeline-dot" title="篩選 Stage 1"></div>
+<div class="timeline-card">
+<div class="timeline-year">STAGE 01</div>
+<h4>HTML / CSS Foundation</h4>
+<p>網頁結構、CSS 版面與視覺風格</p>
+</div>
+</div>
+<div class="timeline-item fade-up" data-stage="2">
+<div class="timeline-dot" title="篩選 Stage 2"></div>
+<div class="timeline-card">
+<div class="timeline-year">STAGE 02</div>
+<h4>JavaScript</h4>
+<p>互動、資料處理與 AI 延伸</p>
+</div>
+</div>
+<div class="timeline-item fade-up" data-stage="3">
+<div class="timeline-dot" title="篩選 Stage 3"></div>
+<div class="timeline-card">
+<div class="timeline-year">STAGE 03</div>
+<h4>Bootstrap &amp; UI</h4>
+<p>Bootstrap、Table、切版與 Flex</p>
+</div>
+</div>
+<div class="timeline-item fade-up" data-stage="4">
+<div class="timeline-dot" title="篩選 Stage 4"></div>
+<div class="timeline-card">
+<div class="timeline-year">STAGE 04</div>
+<h4>Interaction</h4>
+<p>Timeline、Roller 與履歷展示</p>
+</div>
+</div>
+<div class="timeline-item fade-up" data-stage="5">
+<div class="timeline-dot" title="篩選 Stage 5"></div>
+<div class="timeline-card">
+<div class="timeline-year">STAGE 05</div>
+<h4>Forms &amp; Full Stack</h4>
+<p>表單與 AI 輔助全端開發</p>
+</div>
+</div>
+<div class="timeline-item fade-up" data-stage="6">
+<div class="timeline-dot" title="篩選 Stage 6"></div>
+<div class="timeline-card">
+<div class="timeline-year">STAGE 06</div>
+<h4>Portfolio &amp; Animation</h4>
+<p>SPA 履歷與動畫實作</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="s03" class="skill-section py-5" id="skills">
+<div class="container text-center mb-4">
+<small style="letter-spacing:3px;color:var(--m-red);font-weight:750;">TECHNOLOGY STACK</small>
+<h2 class="fw-bold mt-2">Skills Roller</h2>
+</div>
+<div class="overflow-hidden">
+<div class="skill-roller"><div class="skill-item">HTML5</div><div class="skill-item">CSS3</div><div class="skill-item">JavaScript</div><div class="skill-item">Bootstrap 5</div><div class="skill-item">jQuery</div><div class="skill-item">AJAX</div><div class="skill-item">RWD</div><div class="skill-item">Timeline</div><div class="skill-item">Roller</div><div class="skill-item">AI Coding</div><div class="skill-item">HTML5</div><div class="skill-item">CSS3</div><div class="skill-item">JavaScript</div><div class="skill-item">Bootstrap 5</div><div class="skill-item">jQuery</div><div class="skill-item">AJAX</div><div class="skill-item">RWD</div><div class="skill-item">Timeline</div><div class="skill-item">Roller</div><div class="skill-item">AI Coding</div></div>
+</div>
+</section>
+<section id="s04" id="featured">
+<div class="container">
+<div class="section-title text-center fade-up">
+<small>FEATURED PROJECTS</small>
+<h2>代表作品</h2>
+<p>從既有作品中挑選四個主要學習方向，作為首頁快速入口。</p>
+</div>
+<div class="row g-4">
+<div class="col-md-6 col-lg-3 fade-up">
+<div class="featured-card">
+<div class="featured-top"></div>
+<div class="featured-body">
+<div class="featured-icon"><i class="bi bi-filetype-css"></i></div>
+<h4>HTML / CSS</h4>
+<p>從 CSS 版面與視覺風格開始建立前端基礎。</p>
+<a class="view-link" href="20260923-ex01-ai02.html" target="_blank">VIEW PROJECT →</a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 fade-up">
+<div class="featured-card">
+<div class="featured-top"></div>
+<div class="featured-body">
+<div class="featured-icon"><i class="bi bi-filetype-js"></i></div>
+<h4>JavaScript</h4>
+<p>透過 JS 作品累積互動與資料處理能力。</p>
+<a class="view-link" href="20290929-javascript-travelfood.html" target="_blank">VIEW PROJECT →</a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 fade-up">
+<div class="featured-card">
+<div class="featured-top"></div>
+<div class="featured-body">
+<div class="featured-icon"><i class="bi bi-bootstrap"></i></div>
+<h4>Bootstrap</h4>
+<p>Grid、Table、切版與 RWD 作品整合。</p>
+<a class="view-link" href="20290929-javascript-travelfood-ai_aqua.html" target="_blank">VIEW PROJECT →</a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 fade-up">
+<div class="featured-card">
+<div class="featured-top"></div>
+<div class="featured-body">
+<div class="featured-icon"><i class="bi bi-stars"></i></div>
+<h4>AI × Full Stack</h4>
+<p>表單與 AI 輔助全端程式設計的進階作品。</p>
+<a class="view-link" href="20261015-ch8-forms-ex01-ai01.html" target="_blank">VIEW PROJECT →</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 fade-up">
+<div class="featured-card">
+<div class="featured-top"></div>
+<div class="featured-body">
+<div class="featured-icon"><i class="bi bi-stars"></i></div>
+<h4>Portfolio x Animation</h4>
+<p>SPA 履歷與吸晴動畫實作呈現。</p>
+<a class="view-link" href="20261105-SPA-KL-HW_AI.html" target="_blank">VIEW PROJECT →</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 fade-up">
+<div class="featured-card">
+<div class="featured-top"></div>
+<div class="featured-body">
+<div class="featured-icon"><i class="bi bi-stars"></i></div>
+<h4>More To Be Continued..</h4>
+<p>更多精選實作持續更新。</p>
+<a class="view-link" href="#s01" target="_blank">VIEW PROJECT →</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<strong>K. Lin's Web Development Journey</strong><br/>
+<small>Learning by Building · Growing through Practice</small>
+</div>
+</footer>
+<script src="js/jquery-4.0.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(function () {
+
+    $(".path-card").on("mouseenter", function () {
+        $(this).addClass("is-hover");
+    }).on("mouseleave", function () {
+        $(this).removeClass("is-hover");
+    });
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+        });
+    }, { threshold:0.12 });
+
+    document.querySelectorAll(".fade-up").forEach(function(el) {
+        observer.observe(el);
+    });
+
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = $(".nav-link");
+
+    window.addEventListener("scroll", function () {
+        let current = "";
+
+        sections.forEach(function(section) {
+            if (window.scrollY >= section.offsetTop - 130) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.removeClass("active");
+
+        navLinks.each(function () {
+            if ($(this).attr("href") === "#" + current) {
+                $(this).addClass("active");
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
